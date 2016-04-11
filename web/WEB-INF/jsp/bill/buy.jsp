@@ -118,15 +118,16 @@
     <h3>购买</h3>
     <div class="container">
         <form action="addBill" method="post">
-            <div class="user-box">
+            <div class=""></div>
+            <div>
                 收货人：<input type="text" name="consignee" value="${sessionScope.user.name}"
                            required="required"/>
                 电话号码：<input type="text" name="phone" value="${sessionScope.user.phone}"
                             required="required"/>
-                <br />
-                <br />
+                <br/>
+                <br/>
                 收货地址：<input type="text" name="address" value="${sessionScope.user.address}"
-                          required="required"/>
+                            required="required"/>
             </div>
             <div class="bs-docs-example">
                 <table class="table table-striped">
@@ -147,11 +148,8 @@
                             <td>${item.productName}</td>
                             <td><span>${item.price}</span>￥</td>
                             <td>
-                                <form action="updateItem" method="post">
-                                    <input type="text" name="productId" value="${item.productId}" hidden="hidden"/>
-                                    <input type="number" name="amount" value="${item.amount}" min="1" placeholder="购买数量"/>
-                                    <input type="submit" value="修改">
-                                </form>
+                                <input type="number" name="amount" value="${item.amount}" min="1"
+                                       placeholder="购买数量"/>
                             </td>
                             <td class="row-total-price"><span>${item.totalPrice}</span>￥</td>
                             <td>
@@ -166,6 +164,56 @@
                 <input type="submit" value="确认账单"/>
             </div>
         </form>
+        <script>
+            $(document).ready(function () {
+                $("#body").children().each(function (index, element) {
+                    // 获取商品ID
+                    var productId = $(this).children("td").first();
+                    // 获取单价的位置
+                    var price = $(this).children("td:eq(2)");
+                    // 获取数量位置
+                    var amount = price.next();
+                    // 获取总价格位置
+                    var totalPrice = amount.next();
+                    // 当数量变了，更新每行总价格
+                    amount.change(function () {
+                        var priceNumber = price.children().text();
+                        var count = $(this).children().val();
+                        var totalPriceNumber = priceNumber * count;
+                        totalPrice.children().text(totalPriceNumber);
+                        // 更新账单总额
+                        updateAllPrice();
+                        // 向服务器更改信息
+                        $.post(
+                                "updateItem",
+                                {
+                                    productId: productId.text(),
+                                    amount: count
+                                }
+                        );
+                    });
+                });
+                // 更新账单的总价格
+                updateAllPrice();
+                // 更新账单的总价格函数
+                function updateAllPrice() {
+                    var allPrice = 0;
+                    $(".row-total-price span").each(function (index, element) {
+                        var price = $(this).text();
+                        allPrice += parseFloat(price);
+                    });
+                    $("#allPrice").text(allPrice);
+                    // 判断账单是否有商品
+                    if (allPrice == 0) {
+                        alert("您已删除所有的商品，请重新选择商品。\n您现在不能确认账单。");
+                        $(":submit:last").attr("disabled", "disabled");
+                        var span = $("<span></span>").text(" 您已删除所有的商品，请重新选择商品。您现在不能确认账单。");
+                        span.css("color", "red");
+                        $(":submit:last").after(span);
+                    }
+                }
+            });
+        </script>
     </div>
     <!--container-->
 </div>

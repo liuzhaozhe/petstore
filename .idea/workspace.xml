@@ -2,46 +2,73 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb38916a-6fa6-4a9a-8d61-699ff423211a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/c3p0-0.9.5.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/c3p0-oracle-thin-extras-0.9.5.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/commons-codec-1.9.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/jstl.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/mchange-commons-java-0.2.11.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/lib/standard.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/images/BD.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/images/CA.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/images/DG.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/images/FI.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/images/RP.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/petstore/service/BillService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/petstore/service/ProductService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/petstore/service/ShoppingCarService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/petstore/service/UserService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/petstore/web/filter/UserFilter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/AddBillByCarServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/AddBillByProductServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/BillServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/ConfirmBuyServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/DeleteItemServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/GetBillDetailServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/GetBillListServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/UpdateItemServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/petstore/web/servlet/product/CategoryServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/petstore/web/servlet/product/ProductListServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/petstore/web/servlet/product/ProductServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/petstore/web/servlet/product/SearchServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/petstore/web/servlet/shoppingcar/AddShoppingCarServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/petstore/web/servlet/shoppingcar/DeleteShoppingCarServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/petstore/web/servlet/shoppingcar/ShoppingCarServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/petstore/web/servlet/shoppingcar/UpdateShoppingCarServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/petstore/web/servlet/user/LoginFormServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/petstore/web/servlet/user/LoginServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/petstore/web/servlet/user/SignFormServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/petstore/web/servlet/user/SignOutServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/petstore/web/servlet/user/SignServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/petstore/web/servlet/user/UpdateUserServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/petstore/web/servlet/user/UserInfoServlet.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/updateNewBillServlet.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/petstore/com/petstore/web/servlet/bill/AddBillByCarServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/petstore/com/petstore/web/servlet/bill/AddBillByProductServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/petstore/com/petstore/web/servlet/bill/DeleteItemServlet.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/classes/com/petstore/persistence/BillDao.class" afterPath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/classes/com/petstore/persistence/BillDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/classes/com/petstore/persistence/ItemDao.class" afterPath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/classes/com/petstore/persistence/ItemDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/classes/com/petstore/persistence/ProductDao.class" afterPath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/classes/com/petstore/persistence/ProductDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/classes/com/petstore/persistence/UserDao.class" afterPath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/classes/com/petstore/persistence/UserDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/classes/com/petstore/service/BillService.class" afterPath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/classes/com/petstore/service/BillService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/classes/com/petstore/web/filter/UserFilter.class" afterPath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/classes/com/petstore/web/filter/UserFilter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/classes/com/petstore/web/servlet/bill/ConfirmBuyServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/classes/com/petstore/web/servlet/bill/ConfirmBuyServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/classes/com/petstore/web/servlet/bill/UpdateItemServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/classes/com/petstore/web/servlet/bill/UpdateItemServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/classes/com/petstore/web/servlet/shoppingcar/DeleteShoppingCarServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/classes/com/petstore/web/servlet/shoppingcar/DeleteShoppingCarServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/classes/com/petstore/web/servlet/shoppingcar/UpdateShoppingCarServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/classes/com/petstore/web/servlet/shoppingcar/UpdateShoppingCarServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/classes/com/petstore/web/servlet/user/UpdateUserServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/classes/com/petstore/web/servlet/user/UpdateUserServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/petstore/com/petstore/persistence/BillDao.class" afterPath="$PROJECT_DIR$/out/production/petstore/com/petstore/persistence/BillDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/petstore/com/petstore/persistence/ItemDao.class" afterPath="$PROJECT_DIR$/out/production/petstore/com/petstore/persistence/ItemDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/petstore/com/petstore/persistence/ProductDao.class" afterPath="$PROJECT_DIR$/out/production/petstore/com/petstore/persistence/ProductDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/petstore/com/petstore/persistence/UserDao.class" afterPath="$PROJECT_DIR$/out/production/petstore/com/petstore/persistence/UserDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/petstore/com/petstore/service/BillService.class" afterPath="$PROJECT_DIR$/out/production/petstore/com/petstore/service/BillService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/petstore/com/petstore/web/filter/UserFilter.class" afterPath="$PROJECT_DIR$/out/production/petstore/com/petstore/web/filter/UserFilter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/petstore/com/petstore/web/servlet/bill/ConfirmBuyServlet.class" afterPath="$PROJECT_DIR$/out/production/petstore/com/petstore/web/servlet/bill/ConfirmBuyServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/petstore/com/petstore/web/servlet/bill/UpdateItemServlet.class" afterPath="$PROJECT_DIR$/out/production/petstore/com/petstore/web/servlet/bill/UpdateItemServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/petstore/com/petstore/web/servlet/shoppingcar/DeleteShoppingCarServlet.class" afterPath="$PROJECT_DIR$/out/production/petstore/com/petstore/web/servlet/shoppingcar/DeleteShoppingCarServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/petstore/com/petstore/web/servlet/shoppingcar/UpdateShoppingCarServlet.class" afterPath="$PROJECT_DIR$/out/production/petstore/com/petstore/web/servlet/shoppingcar/UpdateShoppingCarServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/petstore/com/petstore/web/servlet/user/UpdateUserServlet.class" afterPath="$PROJECT_DIR$/out/production/petstore/com/petstore/web/servlet/user/UpdateUserServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/jsp/bill/billDetail.jsp" afterPath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/jsp/bill/billDetail.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/jsp/bill/billList.jsp" afterPath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/jsp/bill/billList.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/jsp/bill/buy.jsp" afterPath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/jsp/bill/buy.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/jsp/bill/okBuy.jsp" afterPath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/jsp/bill/okBuy.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/jsp/bill/success.jsp" afterPath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/jsp/bill/success.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/jsp/product/categoryList.jsp" afterPath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/jsp/product/categoryList.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/jsp/product/product.jsp" afterPath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/jsp/product/product.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/jsp/product/productList.jsp" afterPath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/jsp/product/productList.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/jsp/shoppingCar/shoppingCar.jsp" afterPath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/jsp/shoppingCar/shoppingCar.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/jsp/user/login.jsp" afterPath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/jsp/user/login.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/jsp/user/sign.jsp" afterPath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/jsp/user/sign.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/jsp/user/user.jsp" afterPath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/WEB-INF/jsp/user/user.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/index.jsp" afterPath="$PROJECT_DIR$/out/artifacts/petstore_war_exploded/index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/petstore/persistence/BillDao.java" afterPath="$PROJECT_DIR$/src/com/petstore/persistence/BillDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/petstore/persistence/ItemDao.java" afterPath="$PROJECT_DIR$/src/com/petstore/persistence/ItemDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/petstore/persistence/ProductDao.java" afterPath="$PROJECT_DIR$/src/com/petstore/persistence/ProductDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/petstore/persistence/UserDao.java" afterPath="$PROJECT_DIR$/src/com/petstore/persistence/UserDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/petstore/service/BillService.java" afterPath="$PROJECT_DIR$/src/com/petstore/service/BillService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/petstore/web/filter/UserFilter.java" afterPath="$PROJECT_DIR$/src/com/petstore/web/filter/UserFilter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/AddBillByCarServlet.java" afterPath="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/AddBillByCarServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/AddBillByProductServlet.java" afterPath="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/AddBillByProductServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/ConfirmBuyServlet.java" afterPath="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/ConfirmBuyServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/DeleteItemServlet.java" afterPath="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/DeleteItemServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/UpdateItemServlet.java" afterPath="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/UpdateItemServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/petstore/web/servlet/shoppingcar/DeleteShoppingCarServlet.java" afterPath="$PROJECT_DIR$/src/com/petstore/web/servlet/shoppingcar/DeleteShoppingCarServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/petstore/web/servlet/shoppingcar/UpdateShoppingCarServlet.java" afterPath="$PROJECT_DIR$/src/com/petstore/web/servlet/shoppingcar/UpdateShoppingCarServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/petstore/web/servlet/user/UpdateUserServlet.java" afterPath="$PROJECT_DIR$/src/com/petstore/web/servlet/user/UpdateUserServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/bill/billDetail.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/bill/billDetail.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/bill/billList.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/bill/billList.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/bill/buy.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/bill/buy.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/bill/okBuy.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/bill/okBuy.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/bill/success.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/bill/success.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/product/categoryList.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/product/categoryList.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/product/product.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/product/product.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/product/productList.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/product/productList.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/shoppingCar/shoppingCar.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/shoppingCar/shoppingCar.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/user/login.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/user/login.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/user/sign.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/user/sign.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/jsp/user/user.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/user/user.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/index.jsp" afterPath="$PROJECT_DIR$/web/index.jsp" />
     </list>
     <ignored path="petstore.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,7 +97,7 @@
     <favorites_list name="petstore" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -90,9 +117,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/petstore/persistence/BillDao.java" />
-        <option value="$PROJECT_DIR$/src/com/petstore/persistence/CategoryDao.java" />
-        <option value="$PROJECT_DIR$/src/com/petstore/persistence/ProductDao.java" />
         <option value="$PROJECT_DIR$/src/com/petstore/entity/User.java" />
         <option value="$PROJECT_DIR$/src/com/petstore/web/servlet/user/login.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
@@ -110,37 +134,40 @@
         <option value="$PROJECT_DIR$/src/com/petstore/web/servlet/user/LoginServlet.java" />
         <option value="$PROJECT_DIR$/src/com/petstore/web/servlet/user/UserInfoServlet.java" />
         <option value="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/GetBillListServlet.java" />
-        <option value="$PROJECT_DIR$/src/com/petstore/persistence/UserDao.java" />
         <option value="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/GetBillDetailServlet.java" />
-        <option value="$PROJECT_DIR$/src/com/petstore/persistence/ItemDao.java" />
         <option value="$PROJECT_DIR$/src/com/petstore/web/servlet/shoppingcar/AddShoppingCarServlet.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/jsp/shoppingCar/UpdateShoppingCarServlet.java" />
         <option value="$PROJECT_DIR$/src/com/petstore/service/ShoppingCarService.java" />
-        <option value="$PROJECT_DIR$/src/com/petstore/web/servlet/shoppingcar/DeleteShoppingCarServlet.java" />
-        <option value="$PROJECT_DIR$/src/com/petstore/web/servlet/shoppingcar/UpdateShoppingCarServlet.java" />
-        <option value="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/AddBillByProductServlet.java" />
-        <option value="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/AddBillByCarServlet.java" />
-        <option value="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/UpdateItemServlet.java" />
         <option value="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/DeleItemServlet.java" />
-        <option value="$PROJECT_DIR$/src/com/petstore/web/servlet/user/UpdateUserServlet.java" />
-        <option value="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/DeleteItemServlet.java" />
-        <option value="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/ConfirmBuyServlet.java" />
         <option value="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/BillServlet.java" />
-        <option value="$PROJECT_DIR$/src/com/petstore/service/BillService.java" />
-        <option value="$PROJECT_DIR$/web/index.jsp" />
+        <option value="$PROJECT_DIR$/src/com/petstore/web/filter/UserFilter.java" />
+        <option value="$PROJECT_DIR$/src/com/petstore/persistence/ProductDao.java" />
+        <option value="$PROJECT_DIR$/src/com/petstore/persistence/ItemDao.java" />
+        <option value="$PROJECT_DIR$/src/com/petstore/persistence/BillDao.java" />
+        <option value="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/ConfirmBuyServlet.java" />
+        <option value="$PROJECT_DIR$/src/com/petstore/web/servlet/user/UpdateUserServlet.java" />
+        <option value="$PROJECT_DIR$/src/com/petstore/persistence/UserDao.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/jsp/bill/billDetail.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/jsp/bill/billList.jsp" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/bill/buy.jsp" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/bill/okBuy.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/jsp/bill/success.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/jsp/product/categoryList.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/jsp/product/product.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/jsp/product/productList.jsp" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/shoppingCar/shoppingCar.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/user/login.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/jsp/user/sign.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/jsp/user/user.jsp" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/user/login.jsp" />
-        <option value="$PROJECT_DIR$/src/com/petstore/web/filter/UserFilter.java" />
+        <option value="$PROJECT_DIR$/web/index.jsp" />
+        <option value="$PROJECT_DIR$/src/com/petstore/web/servlet/shoppingcar/UpdateShoppingCarServlet.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/shoppingCar/shoppingCar.jsp" />
+        <option value="$PROJECT_DIR$/src/com/petstore/web/servlet/shoppingcar/DeleteShoppingCarServlet.java" />
+        <option value="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/AddBillByCarServlet.java" />
+        <option value="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/AddBillByProductServlet.java" />
+        <option value="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/DeleteItemServlet.java" />
+        <option value="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/updateNewBillServlet.java" />
+        <option value="$PROJECT_DIR$/src/com/petstore/web/servlet/bill/UpdateItemServlet.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/bill/buy.jsp" />
+        <option value="$PROJECT_DIR$/src/com/petstore/service/BillService.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/jsp/bill/okBuy.jsp" />
       </list>
     </option>
   </component>
@@ -194,6 +221,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -214,8 +243,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -781,11 +808,15 @@
       <updated>1460268110539</updated>
       <workItem from="1460268112248" duration="29609000" />
       <workItem from="1460339601219" duration="1663000" />
+      <workItem from="1460342723585" duration="231000" />
+      <workItem from="1460345400232" duration="104000" />
+      <workItem from="1460345700268" duration="172000" />
+      <workItem from="1460355810445" duration="7869000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31272000" />
+    <option name="totallyTimeSpent" value="39648000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -803,20 +834,20 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33179724" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24962178" sideWeight="0.4827586" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.51724136" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24962178" sideWeight="0.47356322" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5264368" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32872504" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2795699" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23348695" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32872504" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -832,7 +863,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="9" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -841,67 +872,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/petstore/entity/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46568626">
-          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.392857">
-          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/workspace/apache tool/apache-tomcat-9.0.0.M4/lib/servlet-api.jar!/javax/servlet/ServletRequestWrapper.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45767197">
-          <caret line="142" column="5" selection-start-line="142" selection-start-column="5" selection-end-line="142" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/workspace/apache tool/apache-tomcat-9.0.0.M4/lib/servlet-api.jar!/javax/servlet/ServletRequest.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4074074">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/petstore/persistence/ProductDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.007109">
-          <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;method#getProduct#0;class#ProductDao#0" expanded="false" />
-            <element signature="method#getProduct#0;class#ProductDao#0" expanded="false" />
-            <element signature="docComment;method#getProductInfo#0;class#ProductDao#0" expanded="false" />
-            <element signature="e#2745#2755#0" expanded="false" />
-            <element signature="docComment;method#getProductInfoByName#0;class#ProductDao#0" expanded="false" />
-            <element signature="method#getProductInfoByName#0;class#ProductDao#0" expanded="false" />
-            <element signature="docComment;method#update#0;class#ProductDao#0" expanded="false" />
-            <element signature="method#update#0;class#ProductDao#0" expanded="false" />
-            <element signature="docComment;method#getStock#0;class#ProductDao#0" expanded="false" />
-            <element signature="method#getStock#0;class#ProductDao#0" expanded="false" />
-            <element signature="docComment;method#getProductNameList#0;class#ProductDao#0" expanded="false" />
-            <element signature="method#getProductNameList#0;class#ProductDao#0" expanded="false" />
-            <marker date="1460271030141" expanded="true" signature="567:608" placeholder="SELECT * FRO... product" />
-            <marker date="1460271030141" expanded="true" signature="658:724" placeholder="SELECT produ... product" />
-            <marker date="1460271030141" expanded="true" signature="768:838" placeholder="SELECT produ... product" />
-            <marker date="1460271030141" expanded="true" signature="876:940" placeholder="SELECT produ... product" />
-            <marker date="1460271030141" expanded="true" signature="990:1036" placeholder="SELECT amoun... product" />
-            <marker date="1460271030141" expanded="true" signature="1085:1141" placeholder="SELECT produ... product" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/images/DG-HH.gif">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/images/DG-LR.gif">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -916,25 +886,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33178654">
           <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#423#424#0" expanded="false" />
-            <element signature="e#492#493#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/petstore/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#275#276#0" expanded="false" />
-            <element signature="e#342#343#0" expanded="false" />
-            <element signature="e#381#382#0" expanded="false" />
-            <element signature="e#438#439#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -942,7 +893,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.9118329">
           <caret line="31" column="68" selection-start-line="31" selection-start-column="68" selection-end-line="31" selection-end-column="68" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -950,7 +900,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.04408353">
           <caret line="16" column="61" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -958,7 +907,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20649652">
           <caret line="24" column="58" selection-start-line="24" selection-start-column="58" selection-end-line="24" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -966,7 +914,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20649652">
           <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -974,7 +921,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5290023">
           <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -982,7 +928,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4709977">
           <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -990,7 +935,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.25058004">
           <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -998,34 +942,72 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07424594">
           <caret line="75" column="55" selection-start-line="25" selection-start-column="8" selection-end-line="75" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/petstore/service/ShoppingCarService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.35714287">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/petstore/web/servlet/shoppingcar/ShoppingCarServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3275862">
+          <caret line="17" column="62" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/petstore/web/servlet/shoppingcar/AddShoppingCarServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.046798028">
+          <caret line="16" column="68" selection-start-line="16" selection-start-column="54" selection-end-line="16" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/petstore/web/servlet/bill/GetBillDetailServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="62" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/petstore/web/servlet/bill/GetBillListServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="59" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/petstore/web/servlet/user/LoginServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7192118">
+          <caret line="40" column="31" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/my-style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5026455">
+          <caret line="142" column="1" selection-start-line="142" selection-start-column="1" selection-end-line="142" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/petstore/persistence/UserDao.java">
+    <entry file="file://$PROJECT_DIR$/src/com/petstore/web/filter/UserFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7409091">
-          <caret line="90" column="34" selection-start-line="90" selection-start-column="34" selection-end-line="90" selection-end-column="34" />
-          <folding>
-            <element signature="docComment;method#add#0;class#UserDao#0" expanded="false" />
-            <element signature="method#add#0;class#UserDao#0" expanded="false" />
-            <element signature="docComment;method#getUser#0;class#UserDao#0" expanded="false" />
-            <element signature="docComment;method#checkUsername#0;class#UserDao#0" expanded="false" />
-            <element signature="method#checkUsername#0;class#UserDao#0" expanded="false" />
-            <element signature="docComment;method#update#0;class#UserDao#0" expanded="false" />
-            <marker date="1460286684600" expanded="true" signature="490:533" placeholder="INSERT INTO user... " />
-            <marker date="1460286684600" expanded="true" signature="571:625" placeholder="SELECT * FRO... user" />
-            <marker date="1460286684600" expanded="true" signature="671:715" placeholder="SELECT * FRO... user" />
-            <marker date="1460286684600" expanded="true" signature="753:845" placeholder="UPDATE user " />
-          </folding>
+        <state vertical-scroll-proportion="1.2758621">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/petstore/persistence/ItemDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="279" column="30" selection-start-line="279" selection-start-column="30" selection-end-line="279" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.38906753">
+          <caret line="294" column="25" selection-start-line="294" selection-start-column="25" selection-end-line="294" selection-end-column="25" />
           <folding>
+            <element signature="docComment;method#getBillItemList#0;class#ItemDao#0" expanded="false" />
             <element signature="method#getBillItemList#0;class#ItemDao#0" expanded="false" />
             <element signature="docComment;method#getCarItemList#0;class#ItemDao#0" expanded="false" />
             <element signature="method#getCarItemList#0;class#ItemDao#0" expanded="false" />
@@ -1037,218 +1019,210 @@
             <element signature="method#addShoppingCar#0;class#ItemDao#0" expanded="false" />
             <element signature="docComment;method#addBillAndProduct#0;class#ItemDao#0" expanded="false" />
             <element signature="method#addBillAndProduct#0;class#ItemDao#0" expanded="false" />
-            <marker date="1460290435357" expanded="true" signature="550:712" placeholder="SELECT item.... bill_product" />
-            <marker date="1460290435357" expanded="true" signature="766:929" placeholder="SELECT item.... shoppingcar" />
-            <marker date="1460290435357" expanded="true" signature="978:1059" placeholder="UPDATE shopp... " />
-            <marker date="1460290435357" expanded="true" signature="1112:1172" placeholder="DELETE FROM " />
-            <marker date="1460290435357" expanded="true" signature="1225:1265" placeholder="INSERT INTO shoppingcar... " />
-            <marker date="1460290435357" expanded="true" signature="1311:1352" placeholder="INSERT INTO bill_product... " />
-            <marker date="1460290435357" expanded="true" signature="1405:1578" placeholder="SELECT usern... shoppingcar" />
-            <marker date="1460290435357" expanded="true" signature="1628:1690" placeholder="SELECT * FRO... shoppingcar" />
+            <element signature="docComment;method#getCarItem#0;class#ItemDao#0" expanded="false" />
+            <element signature="method#getCarItem#0;class#ItemDao#0" expanded="false" />
+            <element signature="docComment;method#checkCarItem#0;class#ItemDao#0" expanded="false" />
+            <element signature="method#checkCarItem#0;class#ItemDao#0" expanded="false" />
+            <marker date="1460356368097" expanded="true" signature="550:712" placeholder="SELECT item.... bill_product" />
+            <marker date="1460356368097" expanded="true" signature="766:929" placeholder="SELECT item.... shoppingcar" />
+            <marker date="1460356368097" expanded="true" signature="978:1059" placeholder="UPDATE shopp... " />
+            <marker date="1460356368097" expanded="true" signature="1112:1172" placeholder="DELETE FROM " />
+            <marker date="1460356368097" expanded="true" signature="1225:1265" placeholder="INSERT INTO shoppingcar... " />
+            <marker date="1460356368097" expanded="true" signature="1311:1352" placeholder="INSERT INTO bill_product... " />
+            <marker date="1460356368097" expanded="true" signature="1405:1578" placeholder="SELECT item.... shoppingcar" />
+            <marker date="1460356368097" expanded="true" signature="1628:1690" placeholder="SELECT * FRO... shoppingcar" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/petstore/service/ShoppingCarService.java">
+    <entry file="file://$PROJECT_DIR$/src/com/petstore/persistence/BillDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.35714287">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.511254">
+          <caret line="62" column="29" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
           <folding>
-            <element signature="e#224#225#0" expanded="false" />
-            <element signature="e#293#294#0" expanded="false" />
-            <element signature="e#639#640#0" expanded="false" />
-            <element signature="e#706#707#0" expanded="false" />
+            <element signature="method#add#0;class#BillDao#0" expanded="false" />
+            <marker date="1460356467782" expanded="true" signature="499:538" placeholder="INSERT INTO bill... " />
+            <marker date="1460356467782" expanded="true" signature="589:626" placeholder="SELECT * FRO... bill" />
+            <marker date="1460356467782" expanded="true" signature="675:710" placeholder="SELECT * FRO... bill" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/petstore/persistence/ProductDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5498392">
+          <caret line="112" column="13" selection-start-line="112" selection-start-column="13" selection-end-line="112" selection-end-column="13" />
+          <folding>
+            <element signature="docComment;method#update#0;class#ProductDao#0" expanded="false" />
+            <element signature="method#update#0;class#ProductDao#0" expanded="false" />
+            <element signature="docComment;method#update#1;class#ProductDao#0" expanded="false" />
+            <element signature="method#update#1;class#ProductDao#0" expanded="false" />
+            <marker date="1460356355559" expanded="true" signature="567:608" placeholder="SELECT * FRO... product" />
+            <marker date="1460356355559" expanded="true" signature="658:724" placeholder="SELECT produ... product" />
+            <marker date="1460356355559" expanded="true" signature="768:838" placeholder="SELECT produ... product" />
+            <marker date="1460356355559" expanded="true" signature="876:940" placeholder="UPDATE produ... " />
+            <marker date="1460356355559" expanded="true" signature="990:1036" placeholder="SELECT amoun... product" />
+            <marker date="1460356355559" expanded="true" signature="1085:1141" placeholder="SELECT produ... product" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/petstore/persistence/JDBCUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.70257235">
+          <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/petstore/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4318182">
+          <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+          <folding>
+            <element signature="e#381#382#0" expanded="true" />
+            <element signature="e#438#439#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/petstore/web/servlet/user/UpdateUserServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8596059">
-          <caret line="48" column="13" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.3318182">
+          <caret line="74" column="40" selection-start-line="74" selection-start-column="40" selection-end-line="74" selection-end-column="40" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/petstore/service/BillService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2339902">
-          <caret line="40" column="22" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#559#560#0" expanded="false" />
-            <element signature="e#619#620#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6481481">
-          <caret line="230" column="18" selection-start-line="212" selection-start-column="12" selection-end-line="230" selection-end-column="18" />
-          <folding>
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/bill/billDetail.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5978836">
-          <caret line="193" column="18" selection-start-line="193" selection-start-column="18" selection-end-line="193" selection-end-column="18" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/bill/billList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5978836">
-          <caret line="171" column="22" selection-start-line="171" selection-start-column="22" selection-end-line="171" selection-end-column="22" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/bill/buy.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44708994">
-          <caret line="202" column="18" selection-start-line="202" selection-start-column="18" selection-end-line="202" selection-end-column="18" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/bill/okBuy.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="5.724868">
-          <caret line="198" column="18" selection-start-line="198" selection-start-column="18" selection-end-line="198" selection-end-column="18" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/bill/success.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5978836">
-          <caret line="155" column="18" selection-start-line="155" selection-start-column="18" selection-end-line="155" selection-end-column="18" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/product/categoryList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2962963">
-          <caret line="185" column="18" selection-start-line="185" selection-start-column="18" selection-end-line="185" selection-end-column="18" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/product/product.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8994709">
-          <caret line="165" column="18" selection-start-line="165" selection-start-column="18" selection-end-line="165" selection-end-column="18" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/product/productList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.5185184">
-          <caret line="152" column="18" selection-start-line="152" selection-start-column="18" selection-end-line="152" selection-end-column="18" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/shoppingCar/shoppingCar.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8994709">
-          <caret line="177" column="18" selection-start-line="177" selection-start-column="18" selection-end-line="177" selection-end-column="18" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/user/sign.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="10.550264">
-          <caret line="275" column="18" selection-start-line="275" selection-start-column="18" selection-end-line="275" selection-end-column="18" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/user/user.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8994709">
-          <caret line="286" column="18" selection-start-line="286" selection-start-column="18" selection-end-line="286" selection-end-column="18" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/petstore/web/servlet/user/UserInfoServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="57" selection-start-line="12" selection-start-column="57" selection-end-line="12" selection-end-column="57" />
+        <state vertical-scroll-proportion="0.006818182">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/petstore/web/servlet/shoppingcar/ShoppingCarServlet.java">
+    <entry file="file://$PROJECT_DIR$/src/com/petstore/persistence/UserDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3275862">
-          <caret line="17" column="62" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="62" />
-          <folding />
+        <state vertical-scroll-proportion="0.6425532">
+          <caret line="148" column="53" selection-start-line="148" selection-start-column="53" selection-end-line="148" selection-end-column="53" />
+          <folding>
+            <marker date="1460358377473" expanded="true" signature="490:533" placeholder="INSERT INTO user... " />
+            <marker date="1460358377473" expanded="true" signature="571:625" placeholder="SELECT * FRO... user" />
+            <marker date="1460358377473" expanded="true" signature="671:715" placeholder="SELECT usern... user" />
+            <marker date="1460358377473" expanded="true" signature="753:890" placeholder="UPDATE user " />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/petstore/web/servlet/shoppingcar/AddShoppingCarServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.046798028">
-          <caret line="16" column="68" selection-start-line="16" selection-start-column="54" selection-end-line="16" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/petstore/web/servlet/shoppingcar/DeleteShoppingCarServlet.java">
+    <entry file="file://$PROJECT_DIR$/web/css/jquery-ui.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="74" selection-start-line="19" selection-start-column="57" selection-end-line="19" selection-end-column="74" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/bill/billDetail.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.5">
+          <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/bill/billList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.857143">
+          <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/user/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.857143">
+          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/user/sign.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.857143">
+          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32491583">
+          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/user/user.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22895622">
+          <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/product/productList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22895622">
+          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/product/product.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22895622">
+          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/product/categoryList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22895622">
+          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/bill/success.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22895622">
+          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/petstore/web/servlet/shoppingcar/UpdateShoppingCarServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="74" selection-start-line="19" selection-start-column="57" selection-end-line="19" selection-end-column="74" />
+        <state vertical-scroll-proportion="0.5541872">
+          <caret line="46" column="9" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/petstore/web/servlet/shoppingcar/DeleteShoppingCarServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5320197">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/shoppingCar/shoppingCar.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.5185184">
+          <caret line="164" column="23" selection-start-line="164" selection-start-column="23" selection-end-line="164" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -1256,7 +1230,7 @@
     <entry file="file://$PROJECT_DIR$/src/com/petstore/web/servlet/bill/AddBillByCarServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="64" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="64" />
+          <caret line="37" column="47" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="47" />
           <folding />
         </state>
       </provider>
@@ -1264,23 +1238,7 @@
     <entry file="file://$PROJECT_DIR$/src/com/petstore/web/servlet/bill/AddBillByProductServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="72" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/petstore/web/servlet/bill/BillServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18719211">
-          <caret line="15" column="51" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/petstore/web/servlet/bill/ConfirmBuyServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="60" selection-start-line="21" selection-start-column="50" selection-end-line="21" selection-end-column="60" />
+          <caret line="35" column="47" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="47" />
           <folding />
         </state>
       </provider>
@@ -1288,55 +1246,63 @@
     <entry file="file://$PROJECT_DIR$/src/com/petstore/web/servlet/bill/DeleteItemServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="60" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="60" />
+          <caret line="33" column="47" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/petstore/web/servlet/bill/GetBillDetailServlet.java">
+    <entry file="file://$PROJECT_DIR$/src/com/petstore/web/servlet/bill/updateNewBillServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="62" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="62" />
+        <state vertical-scroll-proportion="0.6133005">
+          <caret line="28" column="55" selection-start-line="28" selection-start-column="55" selection-end-line="28" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/petstore/web/servlet/bill/GetBillListServlet.java">
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/bill/buy.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="59" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="59" />
+        <state vertical-scroll-proportion="-12.214286">
+          <caret line="187" column="33" selection-start-line="187" selection-start-column="33" selection-end-line="187" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/petstore/web/servlet/bill/UpdateItemServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18719211">
-          <caret line="12" column="60" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="60" />
+        <state vertical-scroll-proportion="0.23399015">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/petstore/web/filter/UserFilter.java">
+    <entry file="file://$PROJECT_DIR$/src/com/petstore/web/servlet/bill/BillServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5788177">
-          <caret line="38" column="19" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="56" column="55" selection-start-line="56" selection-start-column="43" selection-end-line="56" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/user/login.jsp">
+    <entry file="file://$PROJECT_DIR$/src/com/petstore/service/BillService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6984127">
-          <caret line="120" column="119" selection-start-line="120" selection-start-column="119" selection-end-line="120" selection-end-column="119" />
+        <state vertical-scroll-proportion="0.6468085">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/petstore/web/servlet/user/LoginServlet.java">
+    <entry file="file://$PROJECT_DIR$/src/com/petstore/web/servlet/bill/ConfirmBuyServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7192118">
-          <caret line="40" column="31" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.004255319">
+          <caret line="26" column="15" selection-start-line="26" selection-start-column="15" selection-end-line="26" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/jsp/bill/okBuy.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4841629">
+          <caret line="162" column="34" selection-start-line="162" selection-start-column="34" selection-end-line="162" selection-end-column="34" />
           <folding />
         </state>
       </provider>

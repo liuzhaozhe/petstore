@@ -57,6 +57,39 @@ public class BillDao {
     }
 
     /**
+     * 添加账单
+     * @param bill
+     * @param username
+     * @param conn 数据库连接，不会关闭
+     * @return
+     */
+    public boolean add(Bill bill, String username, Connection conn){
+        boolean result = false;
+        Connection connection = null;
+        PreparedStatement statement = null;
+        try {
+            connection = conn;
+            statement = connection.prepareStatement(insertSql);
+            statement.setString(1, bill.getBillId());
+            statement.setString(2, username);
+            statement.setString(3, bill.getConsignee());
+            statement.setString(4, bill.getConsigneeAddress());
+            statement.setString(5, bill.getConsigneePhone());
+            statement.setDouble(6, bill.getMoney());
+            statement.setTimestamp(7, bill.getCreateTime());
+            int i = statement.executeUpdate();
+            if (i == 1) {
+                result = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.close(statement);
+        }
+        return result;
+    }
+
+    /**
      * 获取用户所有账单
      * @param username
      * @return

@@ -4,6 +4,7 @@ import com.petstore.entity.User;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 /**
@@ -32,7 +33,8 @@ public class UserFilter implements Filter {
     }
 
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
-        User user = (User) req.getAttribute("user");
+        HttpServletRequest request = (HttpServletRequest) req;
+        User user = (User) request.getSession().getAttribute("user");
         if (user == null) {
             req.setAttribute("msg", "请先登录");
             req.getRequestDispatcher(loginForm).forward(req, resp);

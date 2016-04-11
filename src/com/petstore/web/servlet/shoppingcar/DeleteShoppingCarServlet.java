@@ -26,7 +26,6 @@ public class DeleteShoppingCarServlet extends HttpServlet {
         String username = ((User)request.getSession().getAttribute("user")).getUsername();
         String productId = request.getParameter("productId");
 
-
        shoppingCarService.delete(username,productId);
         response.sendRedirect("shoppingCar");
     }

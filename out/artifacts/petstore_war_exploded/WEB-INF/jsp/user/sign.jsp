@@ -19,7 +19,7 @@
     <!--coustom css-->
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
     <link href="css/my-style.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
     <!--script-->
     <script src="js/jquery-1.12.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -183,6 +183,13 @@
                         </td>
                         <td>
                             <select name="favcategory">
+                                <c:if test="${param.favcategory == null}">
+                                    <option value="鸟" selected="selected">鸟</option>
+                                    <option value="猫">猫</option>
+                                    <option value="狗">狗</option>
+                                    <option value="鱼">鱼</option>
+                                    <option value="爬行动物">爬行动物</option>
+                                </c:if>
                                 <c:if test="${param.favcategory == '鸟'}">
                                     <option value="鸟" selected="selected">鸟</option>
                                     <option value="猫">猫</option>

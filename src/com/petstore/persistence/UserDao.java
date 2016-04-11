@@ -23,7 +23,7 @@ public class UserDao {
     public static String insert = "INSERT INTO user VALUES (?,?,?,?,?,?,?,?,?)";
     public static String select = "SELECT * FROM user WHERE username = ? AND password = ?";
     public static String selectUsername = "SELECT username FROM user WHERE username = ?";
-    public static String update = "UPDATE user SET password = ?, address = ?, email = ?, phone = ?, name = ? WHERE username = ?";
+    public static String update = "UPDATE user SET password = ?, address = ?, email = ?, phone = ?, name = ?, birthday = ?, favcategory = ?,banneropt = ? WHERE username = ?";
 
     /**
      * 添加用户
@@ -143,7 +143,12 @@ public class UserDao {
             statement.setString(3, user.getEmail());
             statement.setString(4, user.getPhone());
             statement.setString(5, user.getName());
-            statement.setString(6, user.getUsername());
+
+            statement.setTimestamp(6, user.getBirthday());
+            statement.setString(7, user.getFavcategory());
+            statement.setInt(8, user.getBanneropt());
+
+            statement.setString(9, user.getUsername());
             int i = statement.executeUpdate();
             if (i == 1) {
                 result = true;

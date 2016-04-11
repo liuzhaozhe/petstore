@@ -30,14 +30,8 @@ public class DeleteItemServlet extends HttpServlet {
             }
         }
         buyList.remove(index);
-        // 计算总金额
-        double totalPrice = 0;
-        for (Item item : buyList
-                ) {
-            totalPrice += item.getTotalPrice();
-        }
-        request.setAttribute("totalPrice", totalPrice);
-        request.getRequestDispatcher(buyPage).forward(request, response);
+        request.getSession().setAttribute("buyList", buyList);
+        response.sendRedirect("updateNewBill");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

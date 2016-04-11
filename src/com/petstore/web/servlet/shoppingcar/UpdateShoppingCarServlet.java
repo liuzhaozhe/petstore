@@ -31,8 +31,20 @@ public class UpdateShoppingCarServlet extends HttpServlet {
         Item item = shoppingCarService.getCarItem(productId, username);
         item.setAmount(amount);
         item.setTotalPrice(amount * item.getPrice());
-        shoppingCarService.update(item, username);
-        response.sendRedirect("shoppingCar");
+        boolean result = shoppingCarService.update(item, username);
+        if (result) {
+            // 更新session数据
+            List<Item> itemList = (List<Item>) request.getSession().getAttribute("itemList");
+            for (Item temp : itemList
+                    ) {
+                if (temp.getProductId().equals(productId)){
+                    temp.setAmount(item.getAmount());
+                    temp.setTotalPrice(item.getTotalPrice());
+                    break;
+                }
+            }
+            request.getSession().setAttribute("itemList", itemList);
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

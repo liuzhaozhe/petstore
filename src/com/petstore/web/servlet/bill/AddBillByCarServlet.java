@@ -17,8 +17,6 @@ import java.util.List;
 @WebServlet(name = "AddBillByCarServlet", value = "/addBillByCar")
 public class AddBillByCarServlet extends HttpServlet {
 
-    private static String buyPage = "/WEB-INF/jsp/bill/buy.jsp";
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String productId = request.getParameter("productId");
         List<Item> buyList = new ArrayList<Item>();
@@ -36,16 +34,8 @@ public class AddBillByCarServlet extends HttpServlet {
             // 购买购物车所有的商品
             buyList.addAll(itemList);
         }
-
-        // 计算总金额
-        double totalPrice = 0;
-        for (Item item : buyList
-             ) {
-            totalPrice += item.getTotalPrice();
-        }
-        request.setAttribute("totalPrice", totalPrice);
         request.getSession().setAttribute("buyList", buyList);
-        request.getRequestDispatcher(buyPage).forward(request, response);
+        response.sendRedirect("updateNewBill");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

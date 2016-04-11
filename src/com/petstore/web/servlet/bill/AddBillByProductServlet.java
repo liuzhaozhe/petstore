@@ -33,8 +33,7 @@ public class AddBillByProductServlet extends HttpServlet {
         List<Item> buyList = new ArrayList<Item>();
         buyList.add(item);
         request.getSession().setAttribute("buyList", buyList);
-        request.setAttribute("totalPrice", item.getTotalPrice());
-        request.getRequestDispatcher(buyPage).forward(request, response);
+        response.sendRedirect("updateNewBill");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

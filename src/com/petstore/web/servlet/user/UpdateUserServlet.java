@@ -36,7 +36,9 @@ public class UpdateUserServlet extends HttpServlet {
         String favcategory = request.getParameter("favcategory");
         String banneropt = request.getParameter("banneropt");
 
-        User user = (User) request.getSession().getAttribute("user");
+        User user = new User();
+        User sessionUser = (User) request.getSession().getAttribute("user");
+        user.setPassword(sessionUser.getPassword());
 
         if(pwd.trim().length() != 0){
             if (!pwd.equals(pwd2)){

@@ -287,4 +287,35 @@ public class ItemDao {
         }
         return result;
     }
+
+    /**
+     * 添加账单的商品信息
+     * @param item
+     * @param billId
+     * @param conn 数据库连接，不会关闭
+     * @return
+     */
+    public boolean addBillAndProduct(Item item, String billId, Connection conn) {
+        boolean result = false;
+        Connection connection = null;
+        PreparedStatement statement = null;
+        try {
+            connection = conn;
+            statement = connection.prepareStatement(insertBillItem);
+            statement.setString(1, billId);
+            statement.setString(2, item.getProductId());
+            statement.setInt(3, item.getAmount());
+            statement.setDouble(4, item.getTotalPrice());
+            int i = statement.executeUpdate();
+            if (i == 1) {
+                result = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.close(statement);
+        }
+        return result;
+    }
+
 }

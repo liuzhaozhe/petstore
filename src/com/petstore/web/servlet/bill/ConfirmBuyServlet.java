@@ -35,7 +35,7 @@ public class ConfirmBuyServlet extends HttpServlet {
         if (result) {
             request.getRequestDispatcher(successPage).forward(request, response);
         } else {
-            request.setAttribute("msg", "操作失败");
+            request.setAttribute("msg", "商品库存不足，请取消购买！");
             request.getRequestDispatcher(okBuyPage).forward(request, response);
         }
     }

@@ -19,7 +19,7 @@
     <!--coustom css-->
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
     <link href="css/my-style.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
     <!--script-->
     <script src="js/jquery-1.12.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -105,41 +105,66 @@
 <div class="typography">
     <h3>购物车</h3>
     <div class="container">
-        <div class="bs-docs-example">
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>商品编号</th>
-                    <th>商品名称</th>
-                    <th>商品价格</th>
-                    <th>数量</th>
-                    <th>总价格</th>
-                    <th>操作</th>
-                </tr>
-                </thead>
-                <tbody id="body">
-                <c:forEach items="${sessionScope.itemList}" var="item">
+        <div class="container">
+            <div class="bs-docs-example">
+                <table class="table table-striped">
+                    <thead>
                     <tr>
-                        <td>${item.productId}</td>
-                        <td>${item.productName}</td>
-                        <td><span>${item.price}</span>￥</td>
-                        <td>
-                            <form action="updateShoppingCar" method="post">
-                                <input type="number" name="amount" value="${item.amount}" min="0" placeholder="购买数量"/>
-                                <input type="text" name="productId" value="${item.productId}" hidden="hidden"/>
-                                <input type="submit" value="修改"/>
-                            </form>
-                        </td>
-                        <td><span>${item.totalPrice}</span>￥</td>
-                        <td>
-                            <button><a href="deleteShoppingCar?productId=${item.productId}">删除</a></button>
-                            <button><a href="addBillByCar?productId=${item.productId}">购买</a></button>
-                        </td>
+                        <th>商品编号</th>
+                        <th>商品名称</th>
+                        <th>商品价格</th>
+                        <th>数量</th>
+                        <th>总价格</th>
+                        <th>操作</th>
                     </tr>
-                </c:forEach>
-                </tbody>
-            </table>
-            <a href="addBillByCar"><span class="label label-info">购买全部</span></a>
+                    </thead>
+                    <tbody id="body">
+                    <c:forEach items="${sessionScope.itemList}" var="item">
+                        <tr>
+                            <td>${item.productId}</td>
+                            <td>${item.productName}</td>
+                            <td><span>${item.price}</span>￥</td>
+                            <td><input type="number" value="${item.amount}" min="0" placeholder="购买数量"/></td>
+                            <td><span>${item.totalPrice}</span>￥</td>
+                            <td>
+                                <button><a href="deleteShoppingCar?productId=${item.productId}">删除</a></button>
+                                <button><a href="addBillByCar?productId=${item.productId}">购买</a></button>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+                <a href="addBillByCar"><span class="label label-info">购买全部</span></a>
+            </div>
+            <script>
+                $(document).ready(function () {
+                    $("#body").children().each(function (index, element) {
+                        // 获取商品ID
+                        var productId = $(this).children("td").first();
+                        // 获取单价的位置
+                        var price = $(this).children("td:eq(2)");
+                        // 获取数量位置
+                        var amount = price.next();
+                        // 获取总价格位置
+                        var totalPrice = amount.next();
+                        // 当数量变了，更新每行总价格
+                        amount.change(function () {
+                            var priceNumber = price.children().text();
+                            var count = $(this).children().val();
+                            var totalPriceNumber = priceNumber * count;
+                            totalPrice.children().text(totalPriceNumber);
+                            // 向服务器更改信息
+                            $.post(
+                                    "updateShoppingCar",
+                                    {
+                                        productId: productId.text(),
+                                        amount: count
+                                    }
+                            );
+                        });
+                    });
+                });
+            </script>
         </div>
     </div>
     <!--container-->

@@ -169,6 +169,42 @@ public class ProductDao {
     }
 
     /**
+     * 更新商品数量
+     * @param id
+     * @param amount
+     * @param conn 数据库连接，不会关闭
+     * @return
+     */
+    public boolean update(String id, int amount, Connection conn){
+        boolean result = false;
+        Connection connection = null;
+        PreparedStatement statement = null;
+        try {
+            connection = conn;
+            Object[] o = getProduct(id);
+            Product product = (Product) o[0];
+            if (product.getAmount() < amount){
+                return false;
+            }
+            product.setAmount(product.getAmount() - amount);
+            product.setSellCount(product.getSellCount() + amount);
+            statement = connection.prepareStatement(update);
+            statement.setInt(1, product.getAmount());
+            statement.setInt(2, product.getSellCount());
+            statement.setString(3, id);
+            int i = statement.executeUpdate();
+            if (i == 1) {
+                result = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.close(statement);
+        }
+        return result;
+    }
+
+    /**
      * 获取商品库存
      * @param productId
      * @return
