@@ -15,4 +15,8 @@ public class UserService {
     public boolean update(User user){
         return UserDao.getInstance().update(user);
     }
+
+    public boolean checkUsername(String username){
+        return UserDao.getInstance().checkUsername(username);
+    }
 }

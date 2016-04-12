@@ -245,7 +245,7 @@ public class ProductDao {
         try {
             connection = JDBCUtil.getConnection();
             statement = connection.prepareStatement(selectProductName);
-            statement.setString(1, productName + "%");
+            statement.setString(1, "%" + productName + "%");
             resultSet = statement.executeQuery();
             while (resultSet.next()){
                 productNameList.add(resultSet.getString(1));

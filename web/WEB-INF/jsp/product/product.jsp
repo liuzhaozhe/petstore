@@ -95,6 +95,28 @@
                     <input type="text" name="search" id="autocomplete" autocomplete="off" placeholder="商品名称"
                            required="required"/>
                     <input type="submit" value="查询"/>
+                    <script>
+                        $(document).ready(function () {
+                            $("#autocomplete").autocomplete({
+                                source: function (request, response) {
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "matchName",
+                                        data: "search=" + $("#autocomplete").val(),
+                                        dataType: "json",
+                                        success: function (jsonObj) {
+                                            response(jsonObj);
+                                        }
+                                    });
+                                },
+                                minLength: 1,
+                                select: function (event, ui) {
+                                    $("#autocomplete").val(ui.item.value);
+                                    $(":submit:first").click();
+                                }
+                            });
+                        });
+                    </script>
                 </form>
             </div>
         </div>

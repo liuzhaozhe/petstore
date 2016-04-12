@@ -95,6 +95,28 @@
                     <input type="text" name="search" id="autocomplete" autocomplete="off" placeholder="商品名称"
                            required="required"/>
                     <input type="submit" value="查询"/>
+                    <script>
+                        $(document).ready(function () {
+                            $("#autocomplete").autocomplete({
+                                source: function (request, response) {
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "matchName",
+                                        data: "search=" + $("#autocomplete").val(),
+                                        dataType: "json",
+                                        success: function (jsonObj) {
+                                            response(jsonObj);
+                                        }
+                                    });
+                                },
+                                minLength: 1,
+                                select: function (event, ui) {
+                                    $("#autocomplete").val(ui.item.value);
+                                    $(":submit:first").click();
+                                }
+                            });
+                        });
+                    </script>
                 </form>
             </div>
         </div>
@@ -111,11 +133,36 @@
         <c:forEach items="${sessionScope.productList}" var="product">
             <div class="show">
                 <a href="product?productId=${product[0]}">
-                    <img src="images/${product[2]}" alt="${product[1]}" />
+                    <img src="images/${product[2]}" alt="${product[1]}"/>
                     <div>${product[1]}</div>
+                    <div hidden="hidden">${product[0]}</div>
                 </a>
             </div>
         </c:forEach>
+        <script>
+            $(document).ready(function () {
+                $(".show").each(function () {
+                    var productId = $(this).find("div").last().text();
+                    $(this).tooltip();
+                    $(this).mouseenter(function (e) {
+                        var tar = e.target;
+                        $.getJSON(
+                                "getProductInfo",
+                                {
+                                    productId: productId
+                                },
+                                function (data, status) {
+                                    if (status == 'success') {
+                                        var stock = data.stock;
+                                        var price = data.price;
+                                        $(tar).attr("title", "单价：" + stock + "￥，库存：" + stock);
+                                    }
+                                }
+                        );
+                    });
+                });
+            });
+        </script>
     </div>
     <!--container-->
 </div>

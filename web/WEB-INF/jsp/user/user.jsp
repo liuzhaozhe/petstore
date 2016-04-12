@@ -96,6 +96,28 @@
                     <input type="text" name="search" id="autocomplete" autocomplete="off" placeholder="商品名称"
                            required="required"/>
                     <input type="submit" value="查询"/>
+                    <script>
+                        $(document).ready(function () {
+                            $("#autocomplete").autocomplete({
+                                source: function (request, response) {
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "matchName",
+                                        data: "search=" + $("#autocomplete").val(),
+                                        dataType: "json",
+                                        success: function (jsonObj) {
+                                            response(jsonObj);
+                                        }
+                                    });
+                                },
+                                minLength: 1,
+                                select: function (event, ui) {
+                                    $("#autocomplete").val(ui.item.value);
+                                    $(":submit:first").click();
+                                }
+                            });
+                        });
+                    </script>
                 </form>
             </div>
         </div>
@@ -118,7 +140,7 @@
                         </td>
                         <td>
                             <input type="text" name="username" required="required" value="${sessionScope.user.username}"
-                                   readonly="readonly"/>
+                                   readonly="readonly"/><span id="checkUsername"></span>
                             用户名(只能是字母和数字的组合)
                         </td>
                     </tr>
@@ -136,7 +158,7 @@
                             确认密码：
                         </td>
                         <td>
-                            <input type="password" name="password2"/>
+                            <input type="password" name="password2"/><span id="checkPassword"></span>
                             不用修改密码不用填
                         </td>
                     </tr>
@@ -249,6 +271,66 @@
                 </table>
                 <a href="billList">查看账单</a>
             </form>
+            <script>
+                $(document).ready(function () {
+                    var form = $("form:last");
+                    var usernameInput = form.children().first();
+                    // 判断用户名
+                    usernameInput.blur(function () {
+                        var username = $(this).val();
+                        if (username != "") {
+                            // 判断用户名格式是否正确
+                            var isRight = /^(?=.*[a-z])[a-z0-9]+/ig.test(username);
+                            if (!isRight) {
+                                alert("用户名格式不正确！\n只能是字母和数字的组合!");
+                                usernameInput.focus();
+                                $("#checkUsername").empty();
+                                $("#checkUsername").append("<img src=\"images/error.png\">");
+                                return;
+                            }
+                            // 判断用户名是否存在
+                            $.post(
+                                    "checkUsername",
+                                    {
+                                        username: username
+                                    },
+                                    function (data, status) {
+                                        if (status == "success") {
+                                            if (data == "exist") {
+                                                alert("用户名已存在！请更换用户名！");
+                                                usernameInput.focus();
+                                                $("#checkUsername").empty();
+                                                $("#checkUsername").append("<img src=\"images/error.png\">");
+                                            } else {
+                                                $("#checkUsername").empty();
+                                                $("#checkUsername").append("<img src=\"images/success.png\">");
+                                            }
+                                        }
+                                    }
+                            );
+                        }
+                    });
+                    var passwordInput = $(":password");
+                    var password1Input = passwordInput.first();
+                    var password2Input = passwordInput.last();
+                    password2Input.change(function () {
+                        var password1 = password1Input.val();
+                        var password2 = password2Input.val();
+                        if (password1 == "") {
+                            return;
+                        } else {
+                            if (password1 != password2) {
+                                alert("两次输入的密码不相等");
+                                $("#checkPassword").empty();
+                                $("#checkPassword").append("<img src=\"images/error.png\">");
+                            } else {
+                                $("#checkPassword").empty();
+                                $("#checkPassword").append("<img src=\"images/success.png\">");
+                            }
+                        }
+                    });
+                });
+            </script>
         </div>
     </div>
     <!--container-->

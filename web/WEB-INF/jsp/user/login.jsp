@@ -95,6 +95,28 @@
                     <input type="text" name="search" id="autocomplete" autocomplete="off" placeholder="商品名称"
                            required="required"/>
                     <input type="submit" value="查询"/>
+                    <script>
+                        $(document).ready(function () {
+                            $("#autocomplete").autocomplete({
+                                source: function (request, response) {
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "matchName",
+                                        data: "search=" + $("#autocomplete").val(),
+                                        dataType: "json",
+                                        success: function (jsonObj) {
+                                            response(jsonObj);
+                                        }
+                                    });
+                                },
+                                minLength: 1,
+                                select: function (event, ui) {
+                                    $("#autocomplete").val(ui.item.value);
+                                    $(":submit:first").click();
+                                }
+                            });
+                        });
+                    </script>
                 </form>
             </div>
         </div>
@@ -118,9 +140,42 @@
                     </c:if>
                     <input type="text" name="username" placeholder="账号" required="required" value="${param.username}"/>
                     <br/>
+                    <div id="checkUsername">
+                        <span></span>
+                        <br/>
+                    </div>
                     <input type="password" name="password" placeholder="密码" required="required" value="${param.password}"/>
                     <br/>
                     <input class="button" type="submit" value="登陆">
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            var checkUsername = $("#checkUsername");
+                            checkUsername.hide();
+                            $(":text:last").blur(function () {
+                                var username = $(this).val();
+                                checkUsername.hide();
+                                if (username != "") {
+                                    $.post(
+                                            "checkUsername",
+                                            {
+                                                username: username
+                                            },
+                                            function (data, status) {
+                                                if (status == "success") {
+                                                    if (data == "exist") {
+                                                        checkUsername.children("span").text("");
+                                                        checkUsername.hide();
+                                                    } else {
+                                                        checkUsername.children("span").text("该用户不存在");
+                                                        checkUsername.show();
+                                                    }
+                                                }
+                                            }
+                                    );
+                                }
+                            });
+                        });
+                    </script>
                 </form>
                 <a href="signForm">注册新用户</a>
             </div>

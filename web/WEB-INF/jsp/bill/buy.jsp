@@ -107,6 +107,28 @@
                     <input type="text" name="search" id="autocomplete" autocomplete="off" placeholder="商品名称"
                            required="required"/>
                     <input type="submit" value="查询"/>
+                    <script>
+                        $(document).ready(function () {
+                            $("#autocomplete").autocomplete({
+                                source: function (request, response) {
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "matchName",
+                                        data: "search=" + $("#autocomplete").val(),
+                                        dataType: "json",
+                                        success: function (jsonObj) {
+                                            response(jsonObj);
+                                        }
+                                    });
+                                },
+                                minLength: 1,
+                                select: function (event, ui) {
+                                    $("#autocomplete").val(ui.item.value);
+                                    $(":submit:first").click();
+                                }
+                            });
+                        });
+                    </script>
                 </form>
             </div>
         </div>
@@ -135,6 +157,7 @@
                     <tr>
                         <th>商品编号</th>
                         <th>商品名称</th>
+                        <th>库存</th>
                         <th>商品价格</th>
                         <th>数量</th>
                         <th>总价格</th>
@@ -146,6 +169,7 @@
                         <tr>
                             <td>${item.productId}</td>
                             <td>${item.productName}</td>
+                            <td></td>
                             <td><span>${item.price}</span>￥</td>
                             <td>
                                 <input type="number" name="amount" value="${item.amount}" min="1"
@@ -168,9 +192,10 @@
             $(document).ready(function () {
                 $("#body").children().each(function (index, element) {
                     // 获取商品ID
-                    var productId = $(this).children("td").first();
+                    var productId = $(this).children("td").first();// 获取库存的位置
+                    var stock = $(this).children("td:eq(2)");
                     // 获取单价的位置
-                    var price = $(this).children("td:eq(2)");
+                    var price = $(this).children("td:eq(3)");
                     // 获取数量位置
                     var amount = price.next();
                     // 获取总价格位置
@@ -192,6 +217,23 @@
                                 }
                         );
                     });
+                    // 5秒更新一次库存
+                    stockFlush();
+                    function stockFlush() {
+                        $.post(
+                                "getStock",
+                                {
+                                    productId: productId.text()
+                                },
+                                function (data, status) {
+                                    if (status == "success") {
+                                        stock.text(data);
+                                        amount.children().attr("max", data);
+                                    }
+                                }
+                        );
+                        setTimeout(stockFlush, 5000);
+                    }
                 });
                 // 更新账单的总价格
                 updateAllPrice();
