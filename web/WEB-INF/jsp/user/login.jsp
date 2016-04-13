@@ -146,9 +146,15 @@
                     </div>
                     <input type="password" name="password" placeholder="密码" required="required" value="${param.password}"/>
                     <br/>
+                    <input type="text" name="validationCode" placeholder="验证码" required="required" value="${param.validationCode}"/>
+                    <br/>
+                    <img src="validationCode" alt="看不清，换一张" id="validationCode" title="看不清，换一张"/>
                     <input class="button" type="submit" value="登陆">
                     <script type="text/javascript">
                         $(document).ready(function () {
+                            $("#validationCode").click(function() {
+                                $(this).attr("src", "validationCode?timestamp=" + new Date().getTime());
+                            });
                             var checkUsername = $("#checkUsername");
                             checkUsername.hide();
                             $(":text:last").blur(function () {

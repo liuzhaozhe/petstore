@@ -16,14 +16,50 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-public class BillAction extends ActionSupport implements ModelDriven<Bill> {
+public class BillAction extends ActionSupport {
 
     private BillService billService = new BillService();
     private Map<String, Object> session = ActionContext.getContext().getSession();
-    private Bill bill = new Bill();
+
+    private String billId;
+    private String consignee;
+    private String consigneeAddress;
+    private String consigneePhone;
 
     private String productId = null;
     private int amount = 1;             // 账单商品数量最少是1
+
+    public String getBillId() {
+        return billId;
+    }
+
+    public void setBillId(String billId) {
+        this.billId = billId;
+    }
+
+    public String getConsignee() {
+        return consignee;
+    }
+
+    public void setConsignee(String consignee) {
+        this.consignee = consignee;
+    }
+
+    public String getConsigneeAddress() {
+        return consigneeAddress;
+    }
+
+    public void setConsigneeAddress(String consigneeAddress) {
+        this.consigneeAddress = consigneeAddress;
+    }
+
+    public String getConsigneePhone() {
+        return consigneePhone;
+    }
+
+    public void setConsigneePhone(String consigneePhone) {
+        this.consigneePhone = consigneePhone;
+    }
 
     public void setProductId(String productId) {
         this.productId = productId;
@@ -104,6 +140,10 @@ public class BillAction extends ActionSupport implements ModelDriven<Bill> {
         String dateString = formatter.format(currentTime);
         Random random = new Random();
         int temp = random.nextInt(90) + 10;
+        Bill bill = new Bill();
+        bill.setConsignee(consignee);
+        bill.setConsigneeAddress(consigneeAddress);
+        bill.setConsigneePhone(consigneePhone);
         bill.setBillId(dateString + temp);
         bill.setCreateTime(currentTime);
         List<Item> billItemList = new ArrayList<Item>();
@@ -166,7 +206,7 @@ public class BillAction extends ActionSupport implements ModelDriven<Bill> {
      * @return
      */
     public String getBillDetail() {
-        bill = billService.getBill(bill.getBillId());
+        Bill bill = billService.getBill(billId);
         List<Item> billItemList = billService.getBillItemList(bill.getBillId());
         session.put("bill", bill);
         session.put("billItemList", billItemList);
@@ -223,8 +263,4 @@ public class BillAction extends ActionSupport implements ModelDriven<Bill> {
         return SUCCESS;
     }
 
-    @Override
-    public Bill getModel() {
-        return bill;
-    }
 }

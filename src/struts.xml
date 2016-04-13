@@ -35,6 +35,7 @@
         <action name="sign" class="com.petstore.web.action.UserAction" method="sign">
             <result name="success">index.jsp</result>
             <result name="error">/WEB-INF/jsp/user/sign.jsp</result>
+            <result name="input">/WEB-INF/jsp/user/sign.jsp</result>
             <interceptor-ref name="defaultStack"/>
             <interceptor-ref name="signLog"/>
         </action>
@@ -46,6 +47,7 @@
         <action name="login" class="com.petstore.web.action.UserAction" method="login">
             <result name="success">index.jsp</result>
             <result name="error">/WEB-INF/jsp/user/login.jsp</result>
+            <result name="input">/WEB-INF/jsp/user/login.jsp</result>
             <interceptor-ref name="defaultStack"/>
             <interceptor-ref name="loginLog"/>
         </action>
@@ -59,6 +61,7 @@
         <action name="updateUser" class="com.petstore.web.action.UserAction" method="updateUser">
             <result name="success">/WEB-INF/jsp/user/user.jsp</result>
             <result name="error">/WEB-INF/jsp/user/user.jsp</result>
+            <result name="input">/WEB-INF/jsp/user/user.jsp</result>
             <result name="login" type="redirectAction">loginForm</result>
             <interceptor-ref name="user"/>
         </action>
@@ -66,16 +69,26 @@
         <action name="signOut" class="com.petstore.web.action.UserAction" method="signOut">
             <result name="success">index.jsp</result>
             <result name="login" type="redirectAction">loginForm</result>
+            <interceptor-ref name="user"/>
             <interceptor-ref name="SignOutLog"/>
         </action>
         <!--检查用户名-->
         <action name="checkUsername" class="com.petstore.web.action.UserAction" method="checkUsername">
         </action>
-
+        <!--操作日志-->
         <action name="log" class="com.petstore.web.action.UserAction" method="log">
             <result name="success">/WEB-INF/jsp/user/log.jsp</result>
             <interceptor-ref name="user"/>
         </action>
+        <!--验证码-->
+        <action name="validationCode" class="com.petstore.web.action.ValidationCodeImageAction">
+            <result name="success" type="stream">
+                <param name="contentType">image/jpeg</param>
+                <param name="inputName">imageStream</param>
+                <param name="bufferSize">2048</param>
+            </result>
+        </action>
+
     </package>
 
     <package name="shoppingCar" extends="struts-default">
@@ -179,6 +192,7 @@
         <action name="addBill" class="com.petstore.web.action.BillAction" method="bill">
             <result name="success">/WEB-INF/jsp/bill/okBuy.jsp</result>
             <result name="error">/WEB-INF/jsp/bill/buy.jsp</result>
+            <result name="input">/WEB-INF/jsp/bill/buy.jsp</result>
             <result name="login" type="redirectAction">loginForm</result>
             <interceptor-ref name="user"/>
         </action>

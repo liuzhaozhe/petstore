@@ -13,12 +13,12 @@ import org.apache.struts2.ServletActionContext;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Map;
 
-public class UserAction extends ActionSupport implements ModelDriven<User> {
+public class UserAction extends ActionSupport {
 
-    private User user = new User();
     private UserService userService = new UserService();
     private LogService logService = new LogService();
     Map<String, Object> session = ActionContext.getContext().getSession();
@@ -29,7 +29,15 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
      * @return
      */
     public String sign() {
+        User user = new User();
+        user.setUsername(username);
         user.setPassword(DigestUtils.md5Hex(user.getPassword()));
+        user.setName(name);
+        user.setAddress(address);
+        user.setEmail(email);
+        user.setBirthday(birthday);
+        user.setFavcategory(favcategory);
+        user.setBanneropt(banneropt);
         if (userService.add(user)) {
             session.put("user", user);
             return SUCCESS;
@@ -45,9 +53,9 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
      * @return
      */
     public String login() {
-        user.setPassword(DigestUtils.md5Hex(user.getPassword()));
+        password = DigestUtils.md5Hex(password);
         //根据用户名查找数据库中的信息并提取
-        User loginUser = userService.getUser(user.getUsername(), user.getPassword());
+        User loginUser = userService.getUser(username, password);
         if (loginUser != null) {
             session.put("user", loginUser);
             return SUCCESS;
@@ -63,15 +71,27 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
      * @return
      */
     public String updateUser() {
+        User user = new User();
+        user.setUsername(username);
+
         User sessionUser = (User) session.get("user");
-        sessionUser.setPassword(sessionUser.getPassword());
+        user.setPassword(sessionUser.getPassword());
 
         // 更改密码
-        if (user.getPassword().trim().length() != 0) {
-            sessionUser.setPassword(DigestUtils.md5Hex(user.getPassword()));
+        if (password.trim().length() != 0) {
+            user.setPassword(DigestUtils.md5Hex(password));
         }
 
-        boolean result = userService.update(sessionUser);
+        user.setName(name);
+        user.setAddress(address);
+        user.setEmail(email);
+        user.setPhone(phone);
+        user.setBirthday(birthday);
+        user.setFavcategory(favcategory);
+        user.setBanneropt(banneropt);
+
+
+        boolean result = userService.update(user);
         if (result) {
             session.put("user", user);
             addActionMessage("修改资料成功");
@@ -94,7 +114,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
      * @throws IOException
      */
     public String checkUsername() throws IOException {
-        boolean isHas = userService.checkUsername(user.getUsername());
+        boolean isHas = userService.checkUsername(username);
         HttpServletResponse response = ServletActionContext.getResponse();
         PrintWriter out = response.getWriter();
         if (isHas) {
@@ -119,8 +139,94 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
     }
 
 
-    @Override
-    public User getModel() {
-        return user;
+    private String username;
+    private String password;
+    private String password2;
+    private String address;
+    private String email;
+    private String phone;
+    private String name;
+    private Timestamp birthday;
+    private String favcategory;
+    private int banneropt;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPassword2() {
+        return password2;
+    }
+
+    public void setPassword2(String password2) {
+        this.password2 = password2;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Timestamp getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Timestamp birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getFavcategory() {
+        return favcategory;
+    }
+
+    public void setFavcategory(String favcategory) {
+        this.favcategory = favcategory;
+    }
+
+    public int getBanneropt() {
+        return banneropt;
+    }
+
+    public void setBanneropt(int banneropt) {
+        this.banneropt = banneropt;
     }
 }
