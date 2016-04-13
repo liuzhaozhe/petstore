@@ -142,52 +142,58 @@
         <form action="addBill" method="post">
             <div class=""></div>
             <div>
+                <input type="text" name="billId" value="0" hidden="hidden"/>
                 收货人：<input type="text" name="consignee" value="${sessionScope.user.name}"
                            required="required"/>
-                电话号码：<input type="text" name="phone" value="${sessionScope.user.phone}"
+                电话号码：<input type="text" name="consigneePhone" value="${sessionScope.user.phone}"
                             required="required"/>
                 <br/>
                 <br/>
-                收货地址：<input type="text" name="address" value="${sessionScope.user.address}"
+                收货地址：<input type="text" name="consigneeAddress" value="${sessionScope.user.address}"
                             required="required"/>
-            </div>
-            <div class="bs-docs-example">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>商品编号</th>
-                        <th>商品名称</th>
-                        <th>库存</th>
-                        <th>商品价格</th>
-                        <th>数量</th>
-                        <th>总价格</th>
-                        <th>操作</th>
-                    </tr>
-                    </thead>
-                    <tbody id="body">
-                    <c:forEach items="${sessionScope.buyList}" var="item">
-                        <tr>
-                            <td>${item.productId}</td>
-                            <td>${item.productName}</td>
-                            <td></td>
-                            <td><span>${item.price}</span>￥</td>
-                            <td>
-                                <input type="number" name="amount" value="${item.amount}" min="1"
-                                       placeholder="购买数量"/>
-                            </td>
-                            <td class="row-total-price"><span>${item.totalPrice}</span>￥</td>
-                            <td>
-                                <button><a href="deleteItem?productId=${item.productId}">删除</a></button>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                    </tbody>
-                </table>
-                总金额：<span id="allPrice">${requestScope.totalPrice}</span>￥
-                <hr/>
-                <input type="submit" value="确认账单"/>
             </div>
         </form>
+        <div class="bs-docs-example">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>商品编号</th>
+                    <th>商品名称</th>
+                    <th>库存</th>
+                    <th>商品价格</th>
+                    <th>数量</th>
+                    <th>总价格</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody id="body">
+                <c:forEach items="${sessionScope.buyList}" var="item">
+                    <tr>
+                        <td>${item.productId}</td>
+                        <td>${item.productName}</td>
+                        <td></td>
+                        <td><span>${item.price}</span>￥</td>
+                        <td>
+                            <input type="number" name="amount" value="${item.amount}" min="1"
+                                   placeholder="购买数量"/>
+                        </td>
+                        <td class="row-total-price"><span>${item.totalPrice}</span>￥</td>
+                        <td>
+                            <button><a href="deleteItem?productId=${item.productId}">删除</a></button>
+                        </td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+            总金额：<span id="allPrice">${requestScope.totalPrice}</span>￥
+            <hr/>
+            <input type="submit" value="确认账单"/>
+        </div>
+        <!--
+        </form>
+        表单不在这里结束，在表格之前结束。因为表格中的数量也会提交，struts2 action 通过模型驱动接受参数，bill类没有amount
+        属性，会报错。通过js提交表单
+        -->
         <script>
             $(document).ready(function () {
                 $("#body").children().each(function (index, element) {
@@ -254,6 +260,10 @@
                         $(":submit:last").after(span);
                     }
                 }
+
+                $(":submit:last").click(function(){
+                    $("form:last").submit();
+                });
             });
         </script>
     </div>

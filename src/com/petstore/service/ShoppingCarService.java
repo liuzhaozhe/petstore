@@ -26,4 +26,8 @@ public class ShoppingCarService {
     public boolean delete(String username, String productId) {
         return ItemDao.getInstance().delete(username, productId);
     }
+
+    public boolean addShoppingCar(Item item, String username) {
+        return ItemDao.getInstance().addShoppingCar(item, username);
+    }
 }
