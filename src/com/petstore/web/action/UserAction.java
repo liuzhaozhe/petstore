@@ -53,6 +53,7 @@ public class UserAction extends ActionSupport {
      * @return
      */
     public String login() {
+        System.out.println(validationCode.equals(session.get("validationCode")));
         password = DigestUtils.md5Hex(password);
         //根据用户名查找数据库中的信息并提取
         User loginUser = userService.getUser(username, password);
@@ -61,7 +62,7 @@ public class UserAction extends ActionSupport {
             return SUCCESS;
         } else {
             addActionError("用户名或密码输入错误,请重新输入");
-            return ERROR;
+            return INPUT;
         }
     }
 
@@ -149,6 +150,7 @@ public class UserAction extends ActionSupport {
     private Timestamp birthday;
     private String favcategory;
     private int banneropt;
+    private String validationCode;
 
     public String getUsername() {
         return username;
@@ -228,5 +230,13 @@ public class UserAction extends ActionSupport {
 
     public void setBanneropt(int banneropt) {
         this.banneropt = banneropt;
+    }
+
+    public String getValidationCode() {
+        return validationCode;
+    }
+
+    public void setValidationCode(String validationCode) {
+        this.validationCode = validationCode;
     }
 }

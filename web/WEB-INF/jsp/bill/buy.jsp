@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -139,21 +140,24 @@
 <div class="typography">
     <h3>购买</h3>
     <div class="container">
-        <form action="addBill" method="post">
-            <div class=""></div>
-            <div>
-                <input type="text" name="billId" value="0" hidden="hidden"/>
-                收货人：<input type="text" name="consignee" value="${sessionScope.user.name}"
-                           required="required"/>
-                电话号码：<input type="text" name="consigneePhone" value="${sessionScope.user.phone}"
-                            required="required"/>
-                <br/>
-                <br/>
-                收货地址：<input type="text" name="consigneeAddress" value="${sessionScope.user.address}"
-                            required="required"/>
-            </div>
-        </form>
         <div class="bs-docs-example">
+            <s:form action="addBill">
+                <s:actionerror/>
+                <s:actionmessage/>
+                <div>
+                    收货人：
+                    <s:textfield name="consignee" label="收货人" value="%{#session.user.name}" theme="simple">
+                        <s:param name="required" value="required"/>
+                    </s:textfield>
+                    电话号码：<s:textfield name="consigneePhone" label="电话号码" value="%{#session.user.phone}" theme="simple"/>
+                    <br/>
+                    <br/>
+                    收货地址：<s:textfield name="consigneeAddress" label="收货地址" value="%{#session.user.address}"
+                                      theme="simple"/>
+                    <br/>
+                    <br/>
+                </div>
+            </s:form>
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -167,105 +171,101 @@
                 </tr>
                 </thead>
                 <tbody id="body">
-                <c:forEach items="${sessionScope.buyList}" var="item">
+                <s:iterator value="#session.buyList">
                     <tr>
-                        <td>${item.productId}</td>
-                        <td>${item.productName}</td>
+                        <td><s:property value="productId"/></td>
+                        <td><s:property value="productName"/></td>
                         <td></td>
-                        <td><span>${item.price}</span>￥</td>
+                        <td><span><s:property value="price"/></span>￥</td>
                         <td>
-                            <input type="number" name="amount" value="${item.amount}" min="1"
+                            <input type="number" name="amount" value="<s:property value="amount"/>" min="1"
                                    placeholder="购买数量"/>
                         </td>
-                        <td class="row-total-price"><span>${item.totalPrice}</span>￥</td>
+                        <td class="row-total-price"><span><s:property value="totalPrice"/></span>￥</td>
                         <td>
-                            <button><a href="deleteItem?productId=${item.productId}">删除</a></button>
+                            <button><a href="deleteItem?productId=<s:property value="productId"/>">删除</a></button>
                         </td>
                     </tr>
-                </c:forEach>
+                </s:iterator>
                 </tbody>
             </table>
-            总金额：<span id="allPrice">${requestScope.totalPrice}</span>￥
+            总金额：<span id="allPrice"><s:property value="#request.totalPrice"/> </span>￥
             <hr/>
-            <input type="submit" value="确认账单"/>
-        </div>
-        <!--
-        </form>
-        表单不在这里结束，在表格之前结束。因为表格中的数量也会提交，struts2 action 通过模型驱动接受参数，bill类没有amount
-        属性，会报错。通过js提交表单
-        -->
-        <script>
-            $(document).ready(function () {
-                $("#body").children().each(function (index, element) {
-                    // 获取商品ID
-                    var productId = $(this).children("td").first();// 获取库存的位置
-                    var stock = $(this).children("td:eq(2)");
-                    // 获取单价的位置
-                    var price = $(this).children("td:eq(3)");
-                    // 获取数量位置
-                    var amount = price.next();
-                    // 获取总价格位置
-                    var totalPrice = amount.next();
-                    // 当数量变了，更新每行总价格
-                    amount.change(function () {
-                        var priceNumber = price.children().text();
-                        var count = $(this).children().val();
-                        var totalPriceNumber = priceNumber * count;
-                        totalPrice.children().text(totalPriceNumber);
-                        // 更新账单总额
-                        updateAllPrice();
-                        // 向服务器更改信息
-                        $.post(
-                                "updateItem",
-                                {
-                                    productId: productId.text(),
-                                    amount: count
-                                }
-                        );
-                    });
-                    // 5秒更新一次库存
-                    stockFlush();
-                    function stockFlush() {
-                        $.post(
-                                "getStock",
-                                {
-                                    productId: productId.text()
-                                },
-                                function (data, status) {
-                                    if (status == "success") {
-                                        stock.text(data);
-                                        amount.children().attr("max", data);
+            <s:submit value="确认账单"/>
+            <%--不在这里结束form，会传许多amount值，action接受会报错--%>
+            <script>
+                $(document).ready(function () {
+                    $("#body").children().each(function (index, element) {
+                        // 获取商品ID
+                        var productId = $(this).children("td").first();// 获取库存的位置
+                        var stock = $(this).children("td:eq(2)");
+                        // 获取单价的位置
+                        var price = $(this).children("td:eq(3)");
+                        // 获取数量位置
+                        var amount = price.next();
+                        // 获取总价格位置
+                        var totalPrice = amount.next();
+                        // 当数量变了，更新每行总价格
+                        amount.change(function () {
+                            var priceNumber = price.children().text();
+                            var count = $(this).children().val();
+                            var totalPriceNumber = priceNumber * count;
+                            totalPrice.children().text(totalPriceNumber);
+                            // 更新账单总额
+                            updateAllPrice();
+                            // 向服务器更改信息
+                            $.post(
+                                    "updateItem",
+                                    {
+                                        productId: productId.text(),
+                                        amount: count
                                     }
-                                }
-                        );
-                        setTimeout(stockFlush, 5000);
-                    }
-                });
-                // 更新账单的总价格
-                updateAllPrice();
-                // 更新账单的总价格函数
-                function updateAllPrice() {
-                    var allPrice = 0;
-                    $(".row-total-price span").each(function (index, element) {
-                        var price = $(this).text();
-                        allPrice += parseFloat(price);
+                            );
+                        });
+                        // 5秒更新一次库存
+                        stockFlush();
+                        function stockFlush() {
+                            $.post(
+                                    "getStock",
+                                    {
+                                        productId: productId.text()
+                                    },
+                                    function (data, status) {
+                                        if (status == "success") {
+                                            stock.text(data);
+                                            amount.children().attr("max", data);
+                                        }
+                                    }
+                            );
+                            setTimeout(stockFlush, 5000);
+                        }
                     });
-                    $("#allPrice").text(allPrice);
-                    // 判断账单是否有商品
-                    if (allPrice == 0) {
-                        alert("您已删除所有的商品，请重新选择商品。\n您现在不能确认账单。");
-                        $(":submit:last").attr("disabled", "disabled");
-                        var span = $("<span></span>").text(" 您已删除所有的商品，请重新选择商品。您现在不能确认账单。");
-                        span.css("color", "red");
-                        $(":submit:last").after(span);
+                    // 更新账单的总价格
+                    updateAllPrice();
+                    // 更新账单的总价格函数
+                    function updateAllPrice() {
+                        var allPrice = 0;
+                        $(".row-total-price span").each(function (index, element) {
+                            var price = $(this).text();
+                            allPrice += parseFloat(price);
+                        });
+                        $("#allPrice").text(allPrice);
+                        // 判断账单是否有商品
+                        if (allPrice == 0) {
+                            alert("您已删除所有的商品，请重新选择商品。\n您现在不能确认账单。");
+                            $(":submit:last").attr("disabled", "disabled");
+                            var span = $("<span></span>").text(" 您已删除所有的商品，请重新选择商品。您现在不能确认账单。");
+                            span.css("color", "red");
+                            $(":submit:last").after(span);
+                        }
                     }
-                }
 
-                $(":submit:last").click(function(){
-                    $("form:last").submit();
+                    $(":submit:last").click(function () {
+                        $("form:last").submit();
+                    });
                 });
-            });
-        </script>
+            </script>
+        </div>
     </div>
     <!--container-->
 </div>

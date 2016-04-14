@@ -126,6 +126,7 @@ public class ProductAction extends ActionSupport {
             array.add(temp);
         }
         HttpServletResponse response = ServletActionContext.getResponse();
+        response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
         out.print(array.toString());
         out.flush();

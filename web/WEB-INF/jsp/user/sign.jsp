@@ -129,147 +129,169 @@
     <h3>用户注册</h3>
     <div class="container">
         <div class="user-box">
-            <c:if test="${requestScope.msg != null}">
-                <div class="user-error">${requestScope.msg}</div>
-            </c:if>
-            <form action="sign" method="post">
-                <table>
-                    <tr>
-                        <td>
-                            用户名：
-                        </td>
-                        <td>
-                            <input type="text" name="username" required="required" value="${param.username}"/>
-                            <span id="checkUsername"></span>
-                            用户名(只能是字母和数字的组合)
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            密码：
-                        </td>
-                        <td>
-                            <input type="password" name="password" required="required" value="${param.password}"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            确认密码：
-                        </td>
-                        <td>
-                            <input type="password" name="password2" required="required" value="${param.password2}"/>
-                            <span id="checkPassword"></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            姓名：
-                        </td>
-                        <td>
-                            <input type="text" name="name" value="${param.name}"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            地址：
-                        </td>
-                        <td>
-                            <input type="text" name="address" value="${param.address}"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            电话号码：
-                        </td>
-                        <td>
-                            <input type="text" name="phone" value="${param.phone}"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            邮箱：
-                        </td>
-                        <td>
-                            <input type="email" name="email" value="${param.email}"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            出生日期：
-                        </td>
-                        <td>
-                            <input type="text" name="birthday" value="${param.birthday}"/>
-                            格式：2016-02-03
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            喜欢的种类：
-                        </td>
-                        <td>
-                            <select name="favcategory">
-                                <c:if test="${param.favcategory == null}">
-                                    <option value="鸟" selected="selected">鸟</option>
-                                    <option value="猫">猫</option>
-                                    <option value="狗">狗</option>
-                                    <option value="鱼">鱼</option>
-                                    <option value="爬行动物">爬行动物</option>
-                                </c:if>
-                                <c:if test="${param.favcategory == '鸟'}">
-                                    <option value="鸟" selected="selected">鸟</option>
-                                    <option value="猫">猫</option>
-                                    <option value="狗">狗</option>
-                                    <option value="鱼">鱼</option>
-                                    <option value="爬行动物">爬行动物</option>
-                                </c:if>
-                                <c:if test="${param.favcategory == '猫'}">
-                                    <option value="鸟">鸟</option>
-                                    <option value="猫" selected="selected">猫</option>
-                                    <option value="狗">狗</option>
-                                    <option value="鱼">鱼</option>
-                                    <option value="爬行动物">爬行动物</option>
-                                </c:if>
-                                <c:if test="${param.favcategory == '狗'}">
-                                    <option value="鸟">鸟</option>
-                                    <option value="猫">猫</option>
-                                    <option value="狗" selected="selected">狗</option>
-                                    <option value="鱼">鱼</option>
-                                    <option value="爬行动物">爬行动物</option>
-                                </c:if>
-                                <c:if test="${param.favcategory == '鱼'}">
-                                    <option value="鸟">鸟</option>
-                                    <option value="猫">猫</option>
-                                    <option value="狗">狗</option>
-                                    <option value="鱼" selected="selected">鱼</option>
-                                    <option value="爬行动物">爬行动物</option>
-                                </c:if>
-                                <c:if test="${param.favcategory == '爬行动物'}">
-                                    <option value="鸟">鸟</option>
-                                    <option value="猫">猫</option>
-                                    <option value="狗">狗</option>
-                                    <option value="鱼">鱼</option>
-                                    <option value="爬行动物" selected="selected">爬行动物</option>
-                                </c:if>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            是否显示图案：
-                        </td>
-                        <td>
-                            <input type="radio" name="banneropt" value="1" checked="checked"/>是
-                            <input type="radio" name="banneropt" value="0"/>否
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <button type="reset" class="btn btn-danger">重置</button>
-                            <button type="submit" class="btn btn-danger">注册</button>
-                        </td>
-                    </tr>
-                </table>
-            </form>
+            <s:form action="sign">
+                <s:actionerror/>
+                <s:actionmessage/>
+                <s:textfield name="username" label="用户名"/>
+                <span id="checkUsername"></span>
+                <s:password name="password" label="密码"/>
+                <s:password name="password2" label="确认密码"/>
+                <s:textfield name="name" label="姓名"/>
+                <s:textfield name="address" label="地址"/>
+                <s:textfield name="phone" label="电话号码"/>
+                <s:textfield name="email" label="邮箱"/>
+                <s:textfield name="birthday" label="出生日期"/>
+                <s:select list="{'鸟','猫','狗','鱼','爬行动物'}" label="喜欢的种类" name="favcategory"/>
+                <s:radio list="#{1:'是',0:'否'}" label="是否显示图案" name="banneropt" value="1"/>
+                <tr>
+                    <td colspan="2" align="right">
+                        <s:reset value="重置" cssClass="btn btn-danger" theme="simple"/>
+                        <s:submit value="注册" cssClass="btn btn-danger" theme="simple"/>
+                    </td>
+                </tr>
+
+            </s:form>
+            <%--<c:if test="${requestScope.msg != null}">--%>
+                <%--<div class="user-error">${requestScope.msg}</div>--%>
+            <%--</c:if>--%>
+            <%--<form action="sign" method="post">--%>
+                <%--<table>--%>
+                    <%--<tr>--%>
+                        <%--<td>--%>
+                            <%--用户名：--%>
+                        <%--</td>--%>
+                        <%--<td>--%>
+                            <%--<input type="text" name="username" required="required" value="${param.username}"/>--%>
+                            <%--<span id="checkUsername"></span>--%>
+                            <%--用户名(只能是字母和数字的组合)--%>
+                        <%--</td>--%>
+                    <%--</tr>--%>
+                    <%--<tr>--%>
+                        <%--<td>--%>
+                            <%--密码：--%>
+                        <%--</td>--%>
+                        <%--<td>--%>
+                            <%--<input type="password" name="password" required="required" value="${param.password}"/>--%>
+                        <%--</td>--%>
+                    <%--</tr>--%>
+                    <%--<tr>--%>
+                        <%--<td>--%>
+                            <%--确认密码：--%>
+                        <%--</td>--%>
+                        <%--<td>--%>
+                            <%--<input type="password" name="password2" required="required" value="${param.password2}"/>--%>
+                            <%--<span id="checkPassword"></span>--%>
+                        <%--</td>--%>
+                    <%--</tr>--%>
+                    <%--<tr>--%>
+                        <%--<td>--%>
+                            <%--姓名：--%>
+                        <%--</td>--%>
+                        <%--<td>--%>
+                            <%--<input type="text" name="name" value="${param.name}"/>--%>
+                        <%--</td>--%>
+                    <%--</tr>--%>
+                    <%--<tr>--%>
+                        <%--<td>--%>
+                            <%--地址：--%>
+                        <%--</td>--%>
+                        <%--<td>--%>
+                            <%--<input type="text" name="address" value="${param.address}"/>--%>
+                        <%--</td>--%>
+                    <%--</tr>--%>
+                    <%--<tr>--%>
+                        <%--<td>--%>
+                            <%--电话号码：--%>
+                        <%--</td>--%>
+                        <%--<td>--%>
+                            <%--<input type="text" name="phone" value="${param.phone}"/>--%>
+                        <%--</td>--%>
+                    <%--</tr>--%>
+                    <%--<tr>--%>
+                        <%--<td>--%>
+                            <%--邮箱：--%>
+                        <%--</td>--%>
+                        <%--<td>--%>
+                            <%--<input type="email" name="email" value="${param.email}"/>--%>
+                        <%--</td>--%>
+                    <%--</tr>--%>
+                    <%--<tr>--%>
+                        <%--<td>--%>
+                            <%--出生日期：--%>
+                        <%--</td>--%>
+                        <%--<td>--%>
+                            <%--<input type="text" name="birthday" value="${param.birthday}"/>--%>
+                            <%--格式：2016-02-03--%>
+                        <%--</td>--%>
+                    <%--</tr>--%>
+                    <%--<tr>--%>
+                        <%--<td>--%>
+                            <%--喜欢的种类：--%>
+                        <%--</td>--%>
+                        <%--<td>--%>
+                            <%--<select name="favcategory">--%>
+                                <%--<c:if test="${param.favcategory == null}">--%>
+                                    <%--<option value="鸟" selected="selected">鸟</option>--%>
+                                    <%--<option value="猫">猫</option>--%>
+                                    <%--<option value="狗">狗</option>--%>
+                                    <%--<option value="鱼">鱼</option>--%>
+                                    <%--<option value="爬行动物">爬行动物</option>--%>
+                                <%--</c:if>--%>
+                                <%--<c:if test="${param.favcategory == '鸟'}">--%>
+                                    <%--<option value="鸟" selected="selected">鸟</option>--%>
+                                    <%--<option value="猫">猫</option>--%>
+                                    <%--<option value="狗">狗</option>--%>
+                                    <%--<option value="鱼">鱼</option>--%>
+                                    <%--<option value="爬行动物">爬行动物</option>--%>
+                                <%--</c:if>--%>
+                                <%--<c:if test="${param.favcategory == '猫'}">--%>
+                                    <%--<option value="鸟">鸟</option>--%>
+                                    <%--<option value="猫" selected="selected">猫</option>--%>
+                                    <%--<option value="狗">狗</option>--%>
+                                    <%--<option value="鱼">鱼</option>--%>
+                                    <%--<option value="爬行动物">爬行动物</option>--%>
+                                <%--</c:if>--%>
+                                <%--<c:if test="${param.favcategory == '狗'}">--%>
+                                    <%--<option value="鸟">鸟</option>--%>
+                                    <%--<option value="猫">猫</option>--%>
+                                    <%--<option value="狗" selected="selected">狗</option>--%>
+                                    <%--<option value="鱼">鱼</option>--%>
+                                    <%--<option value="爬行动物">爬行动物</option>--%>
+                                <%--</c:if>--%>
+                                <%--<c:if test="${param.favcategory == '鱼'}">--%>
+                                    <%--<option value="鸟">鸟</option>--%>
+                                    <%--<option value="猫">猫</option>--%>
+                                    <%--<option value="狗">狗</option>--%>
+                                    <%--<option value="鱼" selected="selected">鱼</option>--%>
+                                    <%--<option value="爬行动物">爬行动物</option>--%>
+                                <%--</c:if>--%>
+                                <%--<c:if test="${param.favcategory == '爬行动物'}">--%>
+                                    <%--<option value="鸟">鸟</option>--%>
+                                    <%--<option value="猫">猫</option>--%>
+                                    <%--<option value="狗">狗</option>--%>
+                                    <%--<option value="鱼">鱼</option>--%>
+                                    <%--<option value="爬行动物" selected="selected">爬行动物</option>--%>
+                                <%--</c:if>--%>
+                            <%--</select>--%>
+                        <%--</td>--%>
+                    <%--</tr>--%>
+                    <%--<tr>--%>
+                        <%--<td>--%>
+                            <%--是否显示图案：--%>
+                        <%--</td>--%>
+                        <%--<td>--%>
+                            <%--<input type="radio" name="banneropt" value="1" checked="checked"/>是--%>
+                            <%--<input type="radio" name="banneropt" value="0"/>否--%>
+                        <%--</td>--%>
+                    <%--</tr>--%>
+                    <%--<tr>--%>
+                        <%--<td colspan="2">--%>
+                            <%--<button type="reset" class="btn btn-danger">重置</button>--%>
+                            <%--<button type="submit" class="btn btn-danger">注册</button>--%>
+                        <%--</td>--%>
+                    <%--</tr>--%>
+                <%--</table>--%>
+            <%--</form>--%>
             <script>
                 $(document).ready(function () {
                     var form = $("form:last");
@@ -331,21 +353,6 @@
                 });
             </script>
         </div>
-        <%--<s:form action="sign">--%>
-            <%--<s:actionerror/>--%>
-            <%--<s:textfield name="username" key="用户名" requiredLabel="*"/>--%>
-            <%--<s:password name="password" key="密码" requiredLabel="*"/>--%>
-            <%--<s:password name="password2" key="确认密码" requiredLabel="*"/>--%>
-            <%--<s:textfield name="name" key="姓名"/>--%>
-            <%--<s:textfield name="address" key="地址"/>--%>
-            <%--<s:textfield name="phone" key="电话号码"/>--%>
-            <%--<s:textfield name="email" key="邮箱"/>--%>
-            <%--<s:textfield name="birthday" key="出生日期"/>--%>
-            <%--<s:select name="favcategory" key="喜欢的种类" list="{'鸟','猫','狗','鱼','爬行动物'}"/>--%>
-            <%--<s:radio name="banneropt" key="是否显示图案" list="#{1:'是',0:'否'}"/>--%>
-            <%--<s:reset value="重置"/>--%>
-            <%--<s:submit value="注册"/>--%>
-        <%--</s:form>--%>
     </div>
     <!--container-->
 </div>

@@ -52,8 +52,8 @@ div.search input, div.search button {
 .login-panel {
     background: #ffffff;
     box-shadow: 0 0 2px rgba(0, 0, 0, .13), 0 1px 5px rgba(0, 0, 0, .36), inset 0 0 0 1px rgba(255, 255, 255, .69);
-    width: 300px;
-    height: 400px;
+    width: 400px;
+    height: auto;
     float: left;
     padding-top: 20px;
 }
@@ -67,15 +67,8 @@ div.search input, div.search button {
     font-size: 30px;
 }
 
-.login span {
-    font-size: 10px;
-    color: red;
-    margin: 0px;
-    padding: 0px;
-}
-
 div.login input[type="text"], div.login input[type="password"] {
-    height: 30px;
+    height: auto;
     width: 240px;
     margin: 20px 0px;
     border: 1px solid gray;
@@ -126,16 +119,18 @@ div.login input[type="text"], div.login input[type="password"] {
 }
 
 .user-box {
-
+    margin: 0px auto;
+    width: 50%;
 }
 
 div.user-box table {
+    margin: 0px auto;
     height: auto;
     width: 100%;
 }
 
 div.user-box tr {
-    height: 70px;
+    height: 50px;
 }
 
 div.user-box tr:nth-of-type(odd) {
@@ -166,22 +161,24 @@ div.user-box tr:nth-of-type(odd) {
 }
 
 table.log {
-    font-family: verdana,arial,sans-serif;
-    font-size:11px;
-    color:#333333;
+    font-family: verdana, arial, sans-serif;
+    font-size: 11px;
+    color: #333333;
     border-width: 1px;
     border-color: #999999;
     border-collapse: collapse;
 }
+
 table.log th {
-    background:#b5cfd2 url('../images/cell-blue.jpg');
+    background: #b5cfd2 url('../images/cell-blue.jpg');
     border-width: 1px;
     padding: 8px;
     border-style: solid;
     border-color: #999999;
 }
+
 table.log td {
-    background:#dcddc0 url('../images/cell-grey.jpg');
+    background: #dcddc0 url('../images/cell-grey.jpg');
     border-width: 1px;
     padding: 8px;
     border-style: solid;

@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -133,56 +134,74 @@
         <div class="login-panel">
             <div class="login">
                 <h1>欢迎来到宠物商店</h1>
-                <form action="login" method="post">
-                    <c:if test="${requestScope.msg != null}">
-                        <span class="user-error">${requestScope.msg}</span>
-                        <br/>
-                    </c:if>
-                    <input type="text" name="username" placeholder="账号" required="required" value="${param.username}"/>
-                    <br/>
+                <s:form action="login">
+                    <s:actionerror/>
+                    <s:actionmessage/>
                     <div id="checkUsername">
                         <span></span>
                         <br/>
                     </div>
-                    <input type="password" name="password" placeholder="密码" required="required" value="${param.password}"/>
-                    <br/>
-                    <input type="text" name="validationCode" placeholder="验证码" required="required" value="${param.validationCode}"/>
-                    <br/>
-                    <img src="validationCode" alt="看不清，换一张" id="validationCode" title="看不清，换一张"/>
-                    <input class="button" type="submit" value="登陆">
-                    <script type="text/javascript">
-                        $(document).ready(function () {
-                            $("#validationCode").click(function() {
-                                $(this).attr("src", "validationCode?timestamp=" + new Date().getTime());
-                            });
-                            var checkUsername = $("#checkUsername");
+                    <s:textfield name="username" label="用户名"/>
+                    <s:password name="password" label="密码"/>
+                    <s:textfield name="validationCode" label="验证码"/>
+                    <tr>
+                        <td colspan="2" align="right">
+                            <img src="validationCode" alt="看不清，换一张" id="validationCode" title="看不清，换一张" />
+                        </td>
+                    </tr>
+                    <s:submit value="登录"/>
+                </s:form>
+                <%--<form action="login" method="post">--%>
+                    <%--<c:if test="${requestScope.msg != null}">--%>
+                        <%--<span class="user-error">${requestScope.msg}</span>--%>
+                        <%--<br/>--%>
+                    <%--</c:if>--%>
+                    <%--<input type="text" name="username" placeholder="账号" required="required" value="${param.username}"/>--%>
+                    <%--<br/>--%>
+                    <%--<div id="checkUsername">--%>
+                        <%--<span></span>--%>
+                        <%--<br/>--%>
+                    <%--</div>--%>
+                    <%--<input type="password" name="password" placeholder="密码" required="required" value="${param.password}"/>--%>
+                    <%--<br/>--%>
+                    <%--<input type="text" name="validationCode" placeholder="验证码" required="required" value="${param.validationCode}" autocomplete="off"/>--%>
+                    <%--<br/>--%>
+                    <%--<img src="validationCode" alt="看不清，换一张" id="validationCode" title="看不清，换一张" />--%>
+                    <%--<input class="button" type="submit" value="登陆">--%>
+                    <%----%>
+                <%--</form>--%>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        $("#validationCode").click(function() {
+                            $(this).attr("src", "validationCode?timestamp=" + new Date().getTime());
+                        });
+                        var checkUsername = $("#checkUsername");
+                        checkUsername.hide();
+                        $(":text:eq(1)").blur(function () {
+                            var username = $(this).val();
                             checkUsername.hide();
-                            $(":text:last").blur(function () {
-                                var username = $(this).val();
-                                checkUsername.hide();
-                                if (username != "") {
-                                    $.post(
-                                            "checkUsername",
-                                            {
-                                                username: username
-                                            },
-                                            function (data, status) {
-                                                if (status == "success") {
-                                                    if (data == "exist") {
-                                                        checkUsername.children("span").text("");
-                                                        checkUsername.hide();
-                                                    } else {
-                                                        checkUsername.children("span").text("该用户不存在");
-                                                        checkUsername.show();
-                                                    }
+                            if (username != "") {
+                                $.post(
+                                        "checkUsername",
+                                        {
+                                            username: username
+                                        },
+                                        function (data, status) {
+                                            if (status == "success") {
+                                                if (data == "exist") {
+                                                    checkUsername.children("span").text("");
+                                                    checkUsername.hide();
+                                                } else {
+                                                    checkUsername.children("span").text("该用户不存在");
+                                                    checkUsername.show();
                                                 }
                                             }
-                                    );
-                                }
-                            });
+                                        }
+                                );
+                            }
                         });
-                    </script>
-                </form>
+                    });
+                </script>
                 <a href="signForm">注册新用户</a>
             </div>
         </div>

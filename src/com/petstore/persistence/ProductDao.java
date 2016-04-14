@@ -16,7 +16,7 @@ public class ProductDao {
     public static ProductDao instance = null;
 
     public static ProductDao getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new ProductDao();
         }
         return instance;
@@ -32,6 +32,7 @@ public class ProductDao {
 
     /**
      * 获取商品
+     *
      * @param id
      * @return o[]: product, categoryId
      */
@@ -46,7 +47,7 @@ public class ProductDao {
             statement = connection.prepareStatement(selectByProductId);
             statement.setString(1, id);
             resultSet = statement.executeQuery();
-            if (resultSet.next()){
+            if (resultSet.next()) {
                 product = new Product();
                 product.setProductId(resultSet.getString(1));
                 o[1] = resultSet.getString(2);
@@ -70,6 +71,7 @@ public class ProductDao {
 
     /**
      * 通过类别获取商品简要信息
+     *
      * @param categoryId
      * @return String[3]:productId,productName,url
      */
@@ -83,7 +85,7 @@ public class ProductDao {
             statement = connection.prepareStatement(selectByCategoryId);
             statement.setString(1, categoryId);
             resultSet = statement.executeQuery();
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 String[] productInfo = new String[3];
                 productInfo[0] = resultSet.getString(1);
                 productInfo[1] = resultSet.getString(2);
@@ -102,6 +104,7 @@ public class ProductDao {
 
     /**
      * 通过名字获取商品简要信息
+     *
      * @param name
      * @return String[3]:productId,productName,url
      */
@@ -113,9 +116,9 @@ public class ProductDao {
         try {
             connection = JDBCUtil.getConnection();
             statement = connection.prepareStatement(selectByName);
-            statement.setString(1, name + "%");
+            statement.setString(1, "%" + name + "%");
             resultSet = statement.executeQuery();
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 String[] productInfo = new String[3];
                 productInfo[0] = resultSet.getString(1);
                 productInfo[1] = resultSet.getString(2);
@@ -134,11 +137,12 @@ public class ProductDao {
 
     /**
      * 更新商品数量
+     *
      * @param id
      * @param amount
      * @return
      */
-    public boolean update(String id, int amount){
+    public boolean update(String id, int amount) {
         boolean result = false;
         Connection connection = null;
         PreparedStatement statement = null;
@@ -146,7 +150,7 @@ public class ProductDao {
             connection = JDBCUtil.getConnection();
             Object[] o = getProduct(id);
             Product product = (Product) o[0];
-            if (product.getAmount() < amount){
+            if (product.getAmount() < amount) {
                 return false;
             }
             product.setAmount(product.getAmount() - amount);
@@ -170,12 +174,13 @@ public class ProductDao {
 
     /**
      * 更新商品数量
+     *
      * @param id
      * @param amount
-     * @param conn 数据库连接，不会关闭
+     * @param conn   数据库连接，不会关闭
      * @return
      */
-    public boolean update(String id, int amount, Connection conn){
+    public boolean update(String id, int amount, Connection conn) {
         boolean result = false;
         Connection connection = null;
         PreparedStatement statement = null;
@@ -183,7 +188,7 @@ public class ProductDao {
             connection = conn;
             Object[] o = getProduct(id);
             Product product = (Product) o[0];
-            if (product.getAmount() < amount){
+            if (product.getAmount() < amount) {
                 return false;
             }
             product.setAmount(product.getAmount() - amount);
@@ -206,6 +211,7 @@ public class ProductDao {
 
     /**
      * 获取商品库存
+     *
      * @param productId
      * @return
      */
@@ -219,7 +225,7 @@ public class ProductDao {
             statement = connection.prepareStatement(selectProductStock);
             statement.setString(1, productId);
             resultSet = statement.executeQuery();
-            if (resultSet.next()){
+            if (resultSet.next()) {
                 stock = resultSet.getInt(1);
             }
         } catch (SQLException e) {
@@ -234,10 +240,11 @@ public class ProductDao {
 
     /**
      * 通过名字的模糊查询获取商品名字
+     *
      * @param productName
      * @return
      */
-    public List<String> getProductNameList(String productName){
+    public List<String> getProductNameList(String productName) {
         List<String> productNameList = new ArrayList<String>();
         Connection connection = null;
         PreparedStatement statement = null;
@@ -247,7 +254,7 @@ public class ProductDao {
             statement = connection.prepareStatement(selectProductName);
             statement.setString(1, "%" + productName + "%");
             resultSet = statement.executeQuery();
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 productNameList.add(resultSet.getString(1));
             }
         } catch (SQLException e) {

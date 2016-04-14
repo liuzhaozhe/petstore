@@ -137,7 +137,7 @@
                 </tr>
                 <s:iterator value="#session.log">
                     <tr>
-                        <td><s:property value="time"/></td>
+                        <td><s:date name="time" format="yyyy-MM-dd HH:mm:ss"/></td>
                         <td><s:property value="operation"/></td>
                     </tr>
                 </s:iterator>

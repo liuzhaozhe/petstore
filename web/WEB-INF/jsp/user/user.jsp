@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -129,210 +130,196 @@
     <h3>用户信息</h3>
     <div class="container">
         <div class="user-box">
-            <c:if test="${requestScope.msg != null}">
-                <div class="user-error">${requestScope.msg}</div>
-            </c:if>
-            <form action="updateUser" method="post">
-                <table>
-                    <tr>
-                        <td>
-                            用户名：
-                        </td>
-                        <td>
-                            <input type="text" name="username" required="required" value="${sessionScope.user.username}"
-                                   readonly="readonly"/><span id="checkUsername"></span>
-                            用户名(只能是字母和数字的组合)
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            密码：
-                        </td>
-                        <td>
-                            <input type="password" name="password"/>
-                            不用修改密码不用填
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            确认密码：
-                        </td>
-                        <td>
-                            <input type="password" name="password2"/><span id="checkPassword"></span>
-                            不用修改密码不用填
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            姓名：
-                        </td>
-                        <td>
-                            <input type="text" name="name" value="${sessionScope.user.name}"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            地址：
-                        </td>
-                        <td>
-                            <input type="text" name="address" value="${sessionScope.user.address}"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            电话号码：
-                        </td>
-                        <td>
-                            <input type="text" name="phone" value="${sessionScope.user.phone}"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            邮箱：
-                        </td>
-                        <td>
-                            <input type="email" name="email" value="${sessionScope.user.email}"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            出生日期：
-                        </td>
-                        <td>
-                            <input type="text" name="birthday"
-                                   value="<fmt:formatDate value="${sessionScope.user.birthday}" pattern="yyyy-MM-dd"/>"/>
-                            格式：2016-02-03
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            喜欢的种类：
-                        </td>
-                        <td>
-                            <select name="favcategory">
-                                <c:if test="${sessionScope.user.favcategory == '鸟'}">
-                                    <option value="鸟" selected="selected">鸟</option>
-                                    <option value="猫">猫</option>
-                                    <option value="狗">狗</option>
-                                    <option value="鱼">鱼</option>
-                                    <option value="爬行动物">爬行动物</option>
-                                </c:if>
-                                <c:if test="${sessionScope.user.favcategory == '猫'}">
-                                    <option value="鸟">鸟</option>
-                                    <option value="猫" selected="selected">猫</option>
-                                    <option value="狗">狗</option>
-                                    <option value="鱼">鱼</option>
-                                    <option value="爬行动物">爬行动物</option>
-                                </c:if>
-                                <c:if test="${sessionScope.user.favcategory == '狗'}">
-                                    <option value="鸟">鸟</option>
-                                    <option value="猫">猫</option>
-                                    <option value="狗" selected="selected">狗</option>
-                                    <option value="鱼">鱼</option>
-                                    <option value="爬行动物">爬行动物</option>
-                                </c:if>
-                                <c:if test="${sessionScope.user.favcategory == '鱼'}">
-                                    <option value="鸟">鸟</option>
-                                    <option value="猫">猫</option>
-                                    <option value="狗">狗</option>
-                                    <option value="鱼" selected="selected">鱼</option>
-                                    <option value="爬行动物">爬行动物</option>
-                                </c:if>
-                                <c:if test="${sessionScope.user.favcategory == '爬行动物'}">
-                                    <option value="鸟">鸟</option>
-                                    <option value="猫">猫</option>
-                                    <option value="狗">狗</option>
-                                    <option value="鱼">鱼</option>
-                                    <option value="爬行动物" selected="selected">爬行动物</option>
-                                </c:if>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            是否显示图案：
-                        </td>
-                        <td>
-                            <c:if test="${sessionScope.user.banneropt == 1}">
-                                <input type="radio" name="banneropt" value="1" checked="checked"/>是
-                                <input type="radio" name="banneropt" value="0"/>否
-                            </c:if>
-                            <c:if test="${sessionScope.user.banneropt == 0}">
-                                <input type="radio" name="banneropt" value="1"/>是
-                                <input type="radio" name="banneropt" value="0" checked="checked"/>否
-                            </c:if>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <button type="submit" class="btn btn-danger">修改</button>
-                        </td>
-                    </tr>
-                </table>
-                <a href="billList">查看账单</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="log">查看操作日志</a>
-            </form>
-            <script>
-                $(document).ready(function () {
-                    var form = $("form:last");
-                    var usernameInput = form.children().first();
-                    // 判断用户名
-                    usernameInput.blur(function () {
-                        var username = $(this).val();
-                        if (username != "") {
-                            // 判断用户名格式是否正确
-                            var isRight = /^(?=.*[a-z])[a-z0-9]+/ig.test(username);
-                            if (!isRight) {
-                                alert("用户名格式不正确！\n只能是字母和数字的组合!");
-                                usernameInput.focus();
-                                $("#checkUsername").empty();
-                                $("#checkUsername").append("<img src=\"images/error.png\">");
-                                return;
-                            }
-                            // 判断用户名是否存在
-                            $.post(
-                                    "checkUsername",
-                                    {
-                                        username: username
-                                    },
-                                    function (data, status) {
-                                        if (status == "success") {
-                                            if (data == "exist") {
-                                                alert("用户名已存在！请更换用户名！");
-                                                usernameInput.focus();
-                                                $("#checkUsername").empty();
-                                                $("#checkUsername").append("<img src=\"images/error.png\">");
-                                            } else {
-                                                $("#checkUsername").empty();
-                                                $("#checkUsername").append("<img src=\"images/success.png\">");
-                                            }
-                                        }
-                                    }
-                            );
-                        }
-                    });
-                    var passwordInput = $(":password");
-                    var password1Input = passwordInput.first();
-                    var password2Input = passwordInput.last();
-                    password2Input.change(function () {
-                        var password1 = password1Input.val();
-                        var password2 = password2Input.val();
-                        if (password1 == "") {
-                            return;
-                        } else {
-                            if (password1 != password2) {
-                                alert("两次输入的密码不相等");
-                                $("#checkPassword").empty();
-                                $("#checkPassword").append("<img src=\"images/error.png\">");
-                            } else {
-                                $("#checkPassword").empty();
-                                $("#checkPassword").append("<img src=\"images/success.png\">");
-                            }
-                        }
-                    });
-                });
-            </script>
+            <s:form action="updateUser">
+                <s:actionerror/>
+                <s:actionmessage/>
+                <s:textfield name="username" label="用户名" value="%{#session.user.username}" readonly="true"/>
+                <s:password name="password" label="密码"/>
+                <s:password name="password2" label="确认密码"/>
+                <s:textfield name="name" label="姓名" value="%{#session.user.name}"/>
+                <s:textfield name="address" label="地址" value="%{#session.user.address}"/>
+                <s:textfield name="phone" label="电话号码" value="%{#session.user.phone}"/>
+                <s:textfield name="email" label="邮箱" value="%{#session.user.email}"/>
+                <s:textfield name="birthday" label="出生日期">
+                    <s:param name="value"><s:date name="%{#session.user.birthday}" format="yyyy-MM-dd"/></s:param>
+                </s:textfield>
+                <s:select list="{'鸟','猫','狗','鱼','爬行动物'}" label="喜欢的种类" name="favcategory"
+                          value="%{#session.user.favcategory}"/>
+                <s:radio list="#{1:'是',0:'否'}" label="是否显示图案" name="banneropt" value="%{#session.user.banneropt}"/>
+                <s:submit value="修改" cssClass="btn btn-danger"/>
+            </s:form>
+            <a href="billList">查看账单</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="log">查看操作日志</a>
         </div>
+
+        <%--<div class="user-box">--%>
+            <%--<c:if test="${requestScope.msg != null}">--%>
+                <%--<div class="user-error">${requestScope.msg}</div>--%>
+            <%--</c:if>--%>
+            <%--<form action="updateUser" method="post">--%>
+                <%--<table>--%>
+                    <%--<tr>--%>
+                        <%--<td>--%>
+                            <%--用户名：--%>
+                        <%--</td>--%>
+                        <%--<td>--%>
+                            <%--<input type="text" name="username" required="required" value="${sessionScope.user.username}"--%>
+                                   <%--readonly="readonly"/><span id="checkUsername"></span>--%>
+                            <%--用户名(只能是字母和数字的组合)--%>
+                        <%--</td>--%>
+                    <%--</tr>--%>
+                    <%--<tr>--%>
+                        <%--<td>--%>
+                            <%--密码：--%>
+                        <%--</td>--%>
+                        <%--<td>--%>
+                            <%--<input type="password" name="password"/>--%>
+                            <%--不用修改密码不用填--%>
+                        <%--</td>--%>
+                    <%--</tr>--%>
+                    <%--<tr>--%>
+                        <%--<td>--%>
+                            <%--确认密码：--%>
+                        <%--</td>--%>
+                        <%--<td>--%>
+                            <%--<input type="password" name="password2"/><span id="checkPassword"></span>--%>
+                            <%--不用修改密码不用填--%>
+                        <%--</td>--%>
+                    <%--</tr>--%>
+                    <%--<tr>--%>
+                        <%--<td>--%>
+                            <%--姓名：--%>
+                        <%--</td>--%>
+                        <%--<td>--%>
+                            <%--<input type="text" name="name" value="${sessionScope.user.name}"/>--%>
+                        <%--</td>--%>
+                    <%--</tr>--%>
+                    <%--<tr>--%>
+                        <%--<td>--%>
+                            <%--地址：--%>
+                        <%--</td>--%>
+                        <%--<td>--%>
+                            <%--<input type="text" name="address" value="${sessionScope.user.address}"/>--%>
+                        <%--</td>--%>
+                    <%--</tr>--%>
+                    <%--<tr>--%>
+                        <%--<td>--%>
+                            <%--电话号码：--%>
+                        <%--</td>--%>
+                        <%--<td>--%>
+                            <%--<input type="text" name="phone" value="${sessionScope.user.phone}"/>--%>
+                        <%--</td>--%>
+                    <%--</tr>--%>
+                    <%--<tr>--%>
+                        <%--<td>--%>
+                            <%--邮箱：--%>
+                        <%--</td>--%>
+                        <%--<td>--%>
+                            <%--<input type="email" name="email" value="${sessionScope.user.email}"/>--%>
+                        <%--</td>--%>
+                    <%--</tr>--%>
+                    <%--<tr>--%>
+                        <%--<td>--%>
+                            <%--出生日期：--%>
+                        <%--</td>--%>
+                        <%--<td>--%>
+                            <%--<input type="text" name="birthday"--%>
+                                   <%--value="<fmt:formatDate value="${sessionScope.user.birthday}" pattern="yyyy-MM-dd"/>"/>--%>
+                            <%--格式：2016-02-03--%>
+                        <%--</td>--%>
+                    <%--</tr>--%>
+                    <%--<tr>--%>
+                        <%--<td>--%>
+                            <%--喜欢的种类：--%>
+                        <%--</td>--%>
+                        <%--<td>--%>
+                            <%--<select name="favcategory">--%>
+                                <%--<c:if test="${sessionScope.user.favcategory == '鸟'}">--%>
+                                    <%--<option value="鸟" selected="selected">鸟</option>--%>
+                                    <%--<option value="猫">猫</option>--%>
+                                    <%--<option value="狗">狗</option>--%>
+                                    <%--<option value="鱼">鱼</option>--%>
+                                    <%--<option value="爬行动物">爬行动物</option>--%>
+                                <%--</c:if>--%>
+                                <%--<c:if test="${sessionScope.user.favcategory == '猫'}">--%>
+                                    <%--<option value="鸟">鸟</option>--%>
+                                    <%--<option value="猫" selected="selected">猫</option>--%>
+                                    <%--<option value="狗">狗</option>--%>
+                                    <%--<option value="鱼">鱼</option>--%>
+                                    <%--<option value="爬行动物">爬行动物</option>--%>
+                                <%--</c:if>--%>
+                                <%--<c:if test="${sessionScope.user.favcategory == '狗'}">--%>
+                                    <%--<option value="鸟">鸟</option>--%>
+                                    <%--<option value="猫">猫</option>--%>
+                                    <%--<option value="狗" selected="selected">狗</option>--%>
+                                    <%--<option value="鱼">鱼</option>--%>
+                                    <%--<option value="爬行动物">爬行动物</option>--%>
+                                <%--</c:if>--%>
+                                <%--<c:if test="${sessionScope.user.favcategory == '鱼'}">--%>
+                                    <%--<option value="鸟">鸟</option>--%>
+                                    <%--<option value="猫">猫</option>--%>
+                                    <%--<option value="狗">狗</option>--%>
+                                    <%--<option value="鱼" selected="selected">鱼</option>--%>
+                                    <%--<option value="爬行动物">爬行动物</option>--%>
+                                <%--</c:if>--%>
+                                <%--<c:if test="${sessionScope.user.favcategory == '爬行动物'}">--%>
+                                    <%--<option value="鸟">鸟</option>--%>
+                                    <%--<option value="猫">猫</option>--%>
+                                    <%--<option value="狗">狗</option>--%>
+                                    <%--<option value="鱼">鱼</option>--%>
+                                    <%--<option value="爬行动物" selected="selected">爬行动物</option>--%>
+                                <%--</c:if>--%>
+                            <%--</select>--%>
+                        <%--</td>--%>
+                    <%--</tr>--%>
+                    <%--<tr>--%>
+                        <%--<td>--%>
+                            <%--是否显示图案：--%>
+                        <%--</td>--%>
+                        <%--<td>--%>
+                            <%--<c:if test="${sessionScope.user.banneropt == 1}">--%>
+                                <%--<input type="radio" name="banneropt" value="1" checked="checked"/>是--%>
+                                <%--<input type="radio" name="banneropt" value="0"/>否--%>
+                            <%--</c:if>--%>
+                            <%--<c:if test="${sessionScope.user.banneropt == 0}">--%>
+                                <%--<input type="radio" name="banneropt" value="1"/>是--%>
+                                <%--<input type="radio" name="banneropt" value="0" checked="checked"/>否--%>
+                            <%--</c:if>--%>
+                        <%--</td>--%>
+                    <%--</tr>--%>
+                    <%--<tr>--%>
+                        <%--<td colspan="2">--%>
+                            <%--<button type="submit" class="btn btn-danger">修改</button>--%>
+                        <%--</td>--%>
+                    <%--</tr>--%>
+                <%--</table>--%>
+                <%--<a href="billList">查看账单</a>&nbsp;&nbsp;&nbsp;&nbsp;--%>
+                <%--<a href="log">查看操作日志</a>--%>
+            <%--</form>--%>
+            <%--<script>--%>
+                <%--$(document).ready(function () {--%>
+                    <%--var passwordInput = $(":password");--%>
+                    <%--var password1Input = passwordInput.first();--%>
+                    <%--var password2Input = passwordInput.last();--%>
+                    <%--password2Input.change(function () {--%>
+                        <%--var password1 = password1Input.val();--%>
+                        <%--var password2 = password2Input.val();--%>
+                        <%--if (password1 == "") {--%>
+                            <%--return;--%>
+                        <%--} else {--%>
+                            <%--if (password1 != password2) {--%>
+                                <%--alert("两次输入的密码不相等");--%>
+                                <%--$("#checkPassword").empty();--%>
+                                <%--$("#checkPassword").append("<img src=\"images/error.png\">");--%>
+                            <%--} else {--%>
+                                <%--$("#checkPassword").empty();--%>
+                                <%--$("#checkPassword").append("<img src=\"images/success.png\">");--%>
+                            <%--}--%>
+                        <%--}--%>
+                    <%--});--%>
+                <%--});--%>
+            <%--</script>--%>
+        <%--</div>--%>
     </div>
     <!--container-->
 </div>
