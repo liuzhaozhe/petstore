@@ -23,6 +23,16 @@ public class UserAction extends ActionSupport {
     private LogService logService = new LogService();
     Map<String, Object> session = ActionContext.getContext().getSession();
 
+    private String msg = null;
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
     /**
      * 注册
      *
@@ -31,7 +41,7 @@ public class UserAction extends ActionSupport {
     public String sign() {
         User user = new User();
         user.setUsername(username);
-        user.setPassword(DigestUtils.md5Hex(user.getPassword()));
+        user.setPassword(DigestUtils.md5Hex(password));
         user.setName(name);
         user.setAddress(address);
         user.setEmail(email);
@@ -53,7 +63,6 @@ public class UserAction extends ActionSupport {
      * @return
      */
     public String login() {
-        System.out.println(validationCode.equals(session.get("validationCode")));
         password = DigestUtils.md5Hex(password);
         //根据用户名查找数据库中的信息并提取
         User loginUser = userService.getUser(username, password);
@@ -116,16 +125,12 @@ public class UserAction extends ActionSupport {
      */
     public String checkUsername() throws IOException {
         boolean isHas = userService.checkUsername(username);
-        HttpServletResponse response = ServletActionContext.getResponse();
-        PrintWriter out = response.getWriter();
         if (isHas) {
-            out.print("exist");
+            msg = "exist";
         } else {
-            out.print("not exist");
+            msg = "not exist";
         }
-        out.flush();
-        out.close();
-        return "";
+        return SUCCESS;
     }
 
     /**

@@ -24,6 +24,7 @@ public class ProductAction extends ActionSupport {
     private String category2 = null;
     private String productId = null;
     private String search = null;
+    private String msg = null;
 
     public String getCategory() {
         return category;
@@ -55,6 +56,14 @@ public class ProductAction extends ActionSupport {
 
     public void setSearch(String search) {
         this.search = search;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
     /**
@@ -125,13 +134,8 @@ public class ProductAction extends ActionSupport {
             temp.addProperty("value", name);
             array.add(temp);
         }
-        HttpServletResponse response = ServletActionContext.getResponse();
-        response.setCharacterEncoding("UTF-8");
-        PrintWriter out = response.getWriter();
-        out.print(array.toString());
-        out.flush();
-        out.close();
-        return "";
+        msg = array.toString();
+        return SUCCESS;
     }
 
     /**
@@ -141,12 +145,8 @@ public class ProductAction extends ActionSupport {
      */
     public String productStock() throws IOException {
         int stock = productService.getStock(productId);
-        HttpServletResponse response = ServletActionContext.getResponse();
-        PrintWriter out = response.getWriter();
-        out.print(stock);
-        out.flush();
-        out.close();
-        return "";
+        msg = String.valueOf(stock);
+        return SUCCESS;
     }
 
     /**
@@ -156,15 +156,11 @@ public class ProductAction extends ActionSupport {
      */
     public String getStockAndPrice() throws IOException {
         Map<String, String> info = productService.getStockAndPrice(productId);
-        HttpServletResponse response = ServletActionContext.getResponse();
-        PrintWriter out = response.getWriter();
         JsonObject json = new JsonObject();
         json.addProperty("price", info.get("price"));
         json.addProperty("stock", info.get("stock"));
-        out.write(json.toString());
-        out.flush();
-        out.close();
-        return "";
+        msg = json.toString();
+        return SUCCESS;
     }
 
 }

@@ -133,7 +133,6 @@
                 <s:actionerror/>
                 <s:actionmessage/>
                 <s:textfield name="username" label="用户名"/>
-                <span id="checkUsername"></span>
                 <s:password name="password" label="密码"/>
                 <s:password name="password2" label="确认密码"/>
                 <s:textfield name="name" label="姓名"/>

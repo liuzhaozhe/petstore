@@ -10,7 +10,7 @@ import com.petstore.service.LogService;
 import java.sql.Timestamp;
 import java.util.Map;
 
-public class LoginLogInterceptor implements Interceptor {
+public class BuyInterceptor implements Interceptor {
 
     private LogService logService = new LogService();
     private Map<String, Object> session;
@@ -29,11 +29,11 @@ public class LoginLogInterceptor implements Interceptor {
     public String intercept(ActionInvocation actionInvocation) throws Exception {
         String result = actionInvocation.invoke();
         if (result.equals("success")) {
-            Log log = new Log();
             session = ActionContext.getContext().getSession();
             User user = (User) session.get("user");
+            Log log = new Log();
             log.setUsername(user.getUsername());
-            log.setOperation("登录");
+            log.setOperation("购买商品");
             log.setTime(new Timestamp(System.currentTimeMillis()));
             logService.insert(log);
         }

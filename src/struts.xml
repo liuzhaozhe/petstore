@@ -9,6 +9,11 @@
     <constant name="struts.devMode" value="true"/>
 
     <package name="user" namespace="/" extends="struts-default">
+
+        <result-types>
+            <result-type name="string" class="com.petstore.web.result.StringResult" />
+        </result-types>
+
         <interceptors>
             <!--检查是否登录拦截器-->
             <interceptor name="userInterceptor" class="com.petstore.web.interceptor.UserInterceptor"/>
@@ -18,6 +23,8 @@
             <interceptor name="loginLog" class="com.petstore.web.interceptor.LoginLogInterceptor"/>
             <!--登出拦截器-->
             <interceptor name="SignOutLog" class="com.petstore.web.interceptor.SignOutLogInterceptor"/>
+            <!--更新用户信息拦截器-->
+            <interceptor name="updateUserInfo" class="com.petstore.web.interceptor.UpdateUserInfoInterceptor"/>
 
             <!--检查是否登录-->
             <interceptor-stack name="user">
@@ -64,16 +71,16 @@
             <result name="input">/WEB-INF/jsp/user/user.jsp</result>
             <result name="login" type="redirectAction">loginForm</result>
             <interceptor-ref name="user"/>
+            <interceptor-ref name="updateUserInfo"/>
         </action>
         <!--退出登录-->
         <action name="signOut" class="com.petstore.web.action.UserAction" method="signOut">
             <result name="success">index.jsp</result>
-            <result name="login" type="redirectAction">loginForm</result>
-            <interceptor-ref name="user"/>
             <interceptor-ref name="SignOutLog"/>
         </action>
         <!--检查用户名-->
         <action name="checkUsername" class="com.petstore.web.action.UserAction" method="checkUsername">
+            <result name="success" type="string">${msg}</result>
         </action>
         <!--操作日志-->
         <action name="log" class="com.petstore.web.action.UserAction" method="log">
@@ -92,9 +99,17 @@
     </package>
 
     <package name="shoppingCar" extends="struts-default">
+        <result-types>
+            <result-type name="string" class="com.petstore.web.result.StringResult"/>
+        </result-types>
 
         <interceptors>
+            <!--用户是否登录-->
             <interceptor name="userInterceptor" class="com.petstore.web.interceptor.UserInterceptor"/>
+            <!--添加购物车拦截器-->
+            <interceptor name="addShoppingCar" class="com.petstore.web.interceptor.AddShoppingCarInterceptor"/>
+            <!--删除购物车拦截器-->
+            <interceptor name="deleteShoppingCar" class="com.petstore.web.interceptor.DeleteShoppingCarInterceptor"/>
 
             <!--检查是否登录-->
             <interceptor-stack name="user">
@@ -115,20 +130,25 @@
             <result name="success" type="redirectAction">shoppingCar</result>
             <result name="login" type="redirectAction">loginForm</result>
             <interceptor-ref name="user"/>
+            <interceptor-ref name="addShoppingCar"/>
         </action>
         <!--删除购物车某一项-->
         <action name="deleteShoppingCar" class="com.petstore.web.action.ShoppingCarAction" method="deleteShoppingCar">
             <result name="success" type="redirectAction">shoppingCar</result>
             <result name="login" type="redirectAction">loginForm</result>
             <interceptor-ref name="user"/>
+            <interceptor-ref name="deleteShoppingCar"/>
         </action>
         <!--更新购物车-->
         <action name="updateShoppingCar" class="com.petstore.web.action.ShoppingCarAction" method="updateShoppingCar">
-
+            <result type="string"> </result>
         </action>
     </package>
 
     <package name="product" extends="struts-default">
+        <result-types>
+            <result-type name="string" class="com.petstore.web.result.StringResult"></result-type>
+        </result-types>
         <!--类别-->
         <action name="category" class="com.petstore.web.action.ProductAction" method="category">
             <result name="success">/WEB-INF/jsp/product/categoryList.jsp</result>
@@ -148,19 +168,29 @@
         </action>
         <!--自动补全，获取商品名称-->
         <action name="matchName" class="com.petstore.web.action.ProductAction" method="matchName">
+            <result name="success" type="string">${msg}</result>
         </action>
         <!--获取商品库存-->
         <action name="getStock" class="com.petstore.web.action.ProductAction" method="productStock">
+            <result name="success" type="string">${msg}</result>
         </action>
         <!--获取商品库存和单价-->
         <action name="getProductInfo" class="com.petstore.web.action.ProductAction" method="getStockAndPrice">
+            <result name="success" type="string">${msg}</result>
         </action>
     </package>
 
     <package name="bill" extends="struts-default">
+        
+        <result-types>
+            <result-type name="string" class="com.petstore.web.result.StringResult"></result-type>
+        </result-types>
 
         <interceptors>
+            <!--判断用户是否登录-->
             <interceptor name="userInterceptor" class="com.petstore.web.interceptor.UserInterceptor"/>
+            <!--购买拦截器-->
+            <interceptor name="buy" class="com.petstore.web.interceptor.BuyInterceptor"/>
 
             <!--检查是否登录-->
             <interceptor-stack name="user">
@@ -202,6 +232,7 @@
             <result name="error">/WEB-INF/jsp/bill/okBuy.jsp</result>
             <result name="login" type="redirectAction">loginForm</result>
             <interceptor-ref name="user"/>
+            <interceptor-ref name="buy"/>
         </action>
         <!--删除账单中的一项-->
         <action name="deleteItem" class="com.petstore.web.action.BillAction" method="deleteItem">
@@ -223,6 +254,7 @@
         </action>
         <!--更新账单-->
         <action name="updateItem" class="com.petstore.web.action.BillAction" method="updateItem">
+            <result name="success" type="string"> </result>
         </action>
     </package>
 

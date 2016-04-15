@@ -11,7 +11,8 @@ import java.sql.Timestamp;
 import java.util.Map;
 
 public class SignOutLogInterceptor implements Interceptor {
-    LogService logService = new LogService();
+    private LogService logService = new LogService();
+    private Map<String, Object> session;
 
     @Override
     public void destroy() {
@@ -25,13 +26,15 @@ public class SignOutLogInterceptor implements Interceptor {
 
     @Override
     public String intercept(ActionInvocation actionInvocation) throws Exception {
-        Map<String, Object> session = ActionContext.getContext().getSession();
+        session = ActionContext.getContext().getSession();
         User user = (User) session.get("user");
-        Log log = new Log();
-        log.setUsername(user.getUsername());
-        log.setOperation("登出");
-        log.setTime(new Timestamp(System.currentTimeMillis()));
-        logService.insert(log);
+        if (user != null) {
+            Log log = new Log();
+            log.setUsername(user.getUsername());
+            log.setOperation("登出");
+            log.setTime(new Timestamp(System.currentTimeMillis()));
+            logService.insert(log);
+        }
         return actionInvocation.invoke();
     }
 }

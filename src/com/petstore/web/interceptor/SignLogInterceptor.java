@@ -12,7 +12,8 @@ import java.util.Map;
 
 public class SignLogInterceptor implements Interceptor {
 
-    LogService logService = new LogService();
+    private LogService logService = new LogService();
+    private Map<String, Object> session;
 
     @Override
     public void destroy() {
@@ -28,7 +29,7 @@ public class SignLogInterceptor implements Interceptor {
     public String intercept(ActionInvocation actionInvocation) throws Exception {
         String result = actionInvocation.invoke();
         if (result.equals("success")) {
-            Map<String, Object> session = ActionContext.getContext().getSession();
+            session = ActionContext.getContext().getSession();
             User user = (User) session.get("user");
             Log log = new Log();
             log.setUsername(user.getUsername());
